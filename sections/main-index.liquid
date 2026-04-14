@@ -1,0 +1,200 @@
+{%- style -%}
+  .hero-premium {
+    min-height: 100vh;
+    background: var(--gradient-hero);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .hero-premium__glow-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.25;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-premium__glow-orb--purple {
+    background: var(--color-brand-1);
+    top: 10%;
+    left: -10%;
+  }
+
+  .hero-premium__glow-orb--pink {
+    background: var(--color-brand-3);
+    bottom: 10%;
+    right: -10%;
+  }
+
+  .hero-premium__content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-premium__eyebrow {
+    display: inline-flex;
+    padding: 8px 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-pill);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-brand-1);
+    margin-bottom: var(--space-4);
+    backdrop-filter: var(--glass-blur);
+    animation: fadeInUp 0.7s ease both;
+  }
+
+  .hero-premium__headline {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-4);
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 0.7s ease both 0.1s;
+  }
+
+  .hero-premium__subheading {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+    animation: fadeInUp 0.7s ease both 0.2s;
+  }
+
+  .hero-premium__actions {
+    display: flex;
+    gap: var(--space-4);
+    animation: fadeInUp 0.7s ease both 0.3s;
+  }
+
+  .hero-premium__social-proof {
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    animation: fadeInUp 0.7s ease both 0.4s;
+  }
+
+  .hero-premium__social-text {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+  }
+
+  .hero-premium__social-logos {
+    display: flex;
+    gap: var(--space-6);
+    opacity: 0.5;
+    filter: grayscale(1);
+  }
+{%- endstyle -%}
+
+<section class="hero-premium">
+  <div class="hero-premium__glow-orb hero-premium__glow-orb--purple"></div>
+  <div class="hero-premium__glow-orb hero-premium__glow-orb--pink"></div>
+
+  <div class="hero-premium__content">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="hero-premium__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+    {%- endif -%}
+
+    <h1 class="hero-premium__headline">
+      {{ section.settings.headline | default: 'The Future of Shopify Apps' }}
+    </h1>
+
+    <div class="hero-premium__subheading">
+      {{ section.settings.subheading | default: 'Scale your storefront with our premium design system. Built for speed, high conversion, and developer experience.' }}
+    </div>
+
+    <div class="hero-premium__actions">
+      <a href="{{ section.settings.primary_cta_link }}" class="btn--primary">
+        {{ section.settings.primary_cta_label | default: 'Get Started' }}
+      </a>
+      <a href="{{ section.settings.secondary_cta_link }}" class="btn--ghost">
+        {{ section.settings.secondary_cta_label | default: 'Book a Demo' }}
+      </a>
+    </div>
+
+    <div class="hero-premium__social-proof">
+      <span class="hero-premium__social-text">Trusted by 2,000+ Shopify Plus Merchants</span>
+      <div class="hero-premium__social-logos">
+        <!-- Add placeholders or actual logos here -->
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "NEW: DAWN PREMIUM 2.0"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "The Future of Shopify Apps"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Scale your storefront with our premium design system. Built for speed, high conversion, and developer experience."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_label",
+      "label": "Primary CTA Label",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_link",
+      "label": "Primary CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary CTA Label",
+      "default": "Book a Demo"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary CTA Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Hero"
+    }
+  ]
+}
+{% endschema %}

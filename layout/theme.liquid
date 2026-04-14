@@ -28,6 +28,13 @@
 
     {% render 'meta-tags' %}
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    {{ 'theme-premium.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'header-scroll.js' | asset_url }}" defer="defer"></script>
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
