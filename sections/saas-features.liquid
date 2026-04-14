@@ -1,0 +1,99 @@
+<section class="saas-features section-premium-features">
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <div class="collection__title title-wrapper title-wrapper--no-top-margin center">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+        {%- if section.settings.description != blank -%}
+          <div class="collection__description rte">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="saas-features-grid">
+      {%- for block in section.blocks -%}
+        <div class="saas-feature-card" {{ block.shopify_attributes }}>
+          <div class="saas-feature-icon">
+            {%- if block.settings.icon_svg != blank -%}
+              {{ block.settings.icon_svg }}
+            {%- else -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+            {%- endif -%}
+          </div>
+          <h3 class="saas-feature-title h4">{{ block.settings.title }}</h3>
+          <p class="saas-feature-text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SaaS Features",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Built for Modern Merchants",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Feature Title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Explain how this feature helps your customers achieve their goals.",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SaaS Features",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

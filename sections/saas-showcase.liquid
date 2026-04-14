@@ -1,0 +1,143 @@
+<section class="saas-showcase section-premium-showcase">
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <div class="collection__title title-wrapper title-wrapper--no-top-margin center">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    <div class="saas-showcase-container">
+      {%- for block in section.blocks -%}
+        <div class="saas-showcase-card" {{ block.shopify_attributes }}>
+          <div class="saas-showcase-content">
+            <h3 class="h2">{{ block.settings.title }}</h3>
+            <div class="saas-showcase-text rte">
+              {{ block.settings.text }}
+            </div>
+            {%- if block.settings.button_label != blank -%}
+              <a href="{{ block.settings.button_link }}" class="button button--secondary">
+                {{ block.settings.button_label }} <span class="view-arrow">→</span>
+              </a>
+            {%- endif -%}
+          </div>
+          <div class="saas-showcase-image">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'showcase-img' }}
+            {%- else -%}
+              {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  .saas-showcase-container {
+    padding: var(--space-6) 0;
+  }
+  .saas-showcase-content h3 {
+    margin-bottom: var(--space-4);
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .saas-showcase-text {
+    margin-bottom: var(--space-6);
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+  .showcase-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glow-card);
+  }
+  .view-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .saas-showcase-card:hover .view-arrow {
+    transform: translateX(5px);
+  }
+  @media screen and (max-width: 989px) {
+    .saas-showcase-card {
+      grid-template-columns: 1fr;
+      padding: var(--space-6);
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "SaaS Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Everything You Need to Scale",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "showcase",
+      "name": "Showcase Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Showcase Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Powerful Analytics",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Gain insights into your subscription growth with real-time dashboards and predictive reporting.</p>",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Learn More",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SaaS Showcase",
+      "blocks": [
+        { "type": "showcase" }
+      ]
+    }
+  ]
+}
+{% endschema %}

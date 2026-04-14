@@ -1,0 +1,85 @@
+<section class="saas-cta section-premium-cta section-{{ section.id }}-padding">
+  <div class="page-width center">
+    <div class="saas-cta-content">
+      <h2 class="h1 saas-cta-heading">{{ section.settings.title }}</h2>
+      <p class="saas-cta-text">{{ section.settings.text }}</p>
+      <div class="saas-cta-actions">
+        <a href="{{ section.settings.button_link }}" class="button button--primary button--cta">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  .saas-cta {
+    padding: var(--space-12) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .saas-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .saas-cta-heading {
+    font-size: var(--text-h2) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.04em !important;
+    margin-bottom: var(--space-4) !important;
+    color: #fff !important;
+  }
+  .saas-cta-text {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: var(--space-8);
+  }
+  .button--cta {
+    padding: 18px 48px !important;
+    font-size: 1.125rem !important;
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
+  }
+  .button--cta:hover {
+    box-shadow: 0 0 50px rgba(236, 72, 153, 0.6);
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "SaaS CTA Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Ready to Transform Your Store?",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "Join 2,000+ Shopify Plus merchants scaling their business with our premium solution.",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Start Free Trial",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SaaS CTA Section"
+    }
+  ]
+}
+{% endschema %}
