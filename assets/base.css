@@ -3787,9 +3787,45 @@ body {
 }
 
 /* Grid adjustments for premium */
-.product-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: var(--space-4) !important;
+.grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin-left: calc(var(--space-4) * -1) !important;
+  margin-bottom: calc(var(--space-4) * -1) !important;
 }
+
+.grid__item {
+  flex-grow: 1 !important;
+  flex-shrink: 0 !important;
+  padding-left: var(--space-4) !important;
+  padding-bottom: var(--space-4) !important;
+  max-width: 100% !important;
+}
+
+@media screen and (min-width: 750px) {
+  .grid--2-col-tablet .grid__item {
+    width: 50% !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .grid--3-col-desktop .grid__item {
+    width: 33.33% !important;
+  }
+  .grid--4-col-desktop .grid__item {
+    width: 25% !important;
+  }
+}
+
+/* Ensure equal height cards */
+.card-wrapper {
+  height: 100% !important;
+}
+
+.card {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
 
