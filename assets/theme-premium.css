@@ -289,14 +289,13 @@ body {
 }
 
 /* Grid consistency and visual balance fixes */
-.section-premium-features .grid,
-.featured-collection .grid {
+.featured-collection .grid,
+.section-premium-features .grid {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 32px !important;
+  gap: 24px !important;
   margin: 0 !important;
   padding: 0 !important;
-  list-style: none !important;
   width: 100% !important;
   overflow: visible !important; /* Fix for slider conflicts */
 }
@@ -307,32 +306,39 @@ body {
 
 .section-premium-features .grid__item,
 .featured-collection .grid__item {
-  flex: 1 1 calc(25% - 32px) !important;
+  flex: 0 0 calc(25% - 18px) !important; /* (100% - (3 gaps * 24px)) / 4 = 25% - 18px */
+  max-width: calc(25% - 18px) !important;
   margin: 0 !important;
   padding: 0 !important;
   display: flex !important;
-  min-width: 260px !important; /* Prevents squashing */
+  min-width: 200px !important; /* Reduced to prevent wrapping on smaller desktop screens */
   box-sizing: border-box !important;
 }
 
 @media screen and (max-width: 1199px) {
   .section-premium-features .grid__item,
   .featured-collection .grid__item {
-    flex: 1 1 calc(33.33% - 32px) !important;
+    flex: 0 0 calc(33.33% - 16px) !important; /* (100% - (2 gaps * 24px)) / 3 = 33.33% - 16px */
+    max-width: calc(33.33% - 16px) !important;
   }
 }
 
 @media screen and (max-width: 989px) {
   .section-premium-features .grid__item,
   .featured-collection .grid__item {
-    flex: 1 1 calc(50% - 32px) !important;
+    flex: 0 0 calc(50% - 12px) !important; /* (100% - (1 gap * 24px)) / 2 = 50% - 12px */
+    max-width: calc(50% - 12px) !important;
   }
 }
 
 @media screen and (max-width: 549px) {
+  .section-premium-features .grid {
+    gap: 16px !important;
+  }
   .section-premium-features .grid__item,
   .featured-collection .grid__item {
-    flex: 1 1 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 }
 
