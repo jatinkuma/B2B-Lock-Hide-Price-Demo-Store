@@ -148,7 +148,7 @@
           {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
           {{ settings.logo | image_url: width: 240 | image_tag: class: 'header__heading-logo', alt: logo_alt, style: 'height: auto; width: 120px;' }}
         {%- else -%}
-          <span class="h4" style="font-weight: 800; letter-spacing: -0.04em; color: var(--text-primary);">{{ shop.name }}</span>
+          <span class="h4" style="font-weight: 800; letter-spacing: -0.04em; color: var(--text-primary); text-transform: uppercase;">{{ shop.name }}</span>
         {%- endif -%}
       </a>
     </div>
@@ -166,7 +166,7 @@
     </nav>
 
     <div class="header__actions">
-      <a href="/apps/install" class="header__install-btn">Install App</a>
+      <a href="https://apps.shopify.com/product-inquiry" class="header__install-btn">Install App</a>
     </div>
   </header>
 </header-wrapper>

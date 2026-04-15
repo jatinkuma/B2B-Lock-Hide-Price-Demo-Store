@@ -291,45 +291,48 @@ body {
 /* Grid consistency and visual balance fixes */
 .section-premium-features .grid,
 .featured-collection .grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
   gap: 32px !important;
-  margin: 0 auto !important;
+  margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
   width: 100% !important;
-  max-width: var(--page-width) !important;
+  overflow: visible !important; /* Fix for slider conflicts */
+}
+
+.featured-collection .slider.grid {
+  flex-wrap: wrap !important; /* Force wrap even if slider is enabled */
 }
 
 .section-premium-features .grid__item,
 .featured-collection .grid__item {
-  width: 100% !important;
-  max-width: 100% !important;
+  flex: 1 1 calc(25% - 32px) !important;
   margin: 0 !important;
   padding: 0 !important;
   display: flex !important;
-  min-width: 0 !important; /* Critical for grid item shrinking */
+  min-width: 260px !important; /* Prevents squashing */
+  box-sizing: border-box !important;
 }
 
 @media screen and (max-width: 1199px) {
-  .section-premium-features .grid,
-  .featured-collection .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  .section-premium-features .grid__item,
+  .featured-collection .grid__item {
+    flex: 1 1 calc(33.33% - 32px) !important;
   }
 }
 
 @media screen and (max-width: 989px) {
-  .section-premium-features .grid,
-  .featured-collection .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 20px !important;
+  .section-premium-features .grid__item,
+  .featured-collection .grid__item {
+    flex: 1 1 calc(50% - 32px) !important;
   }
 }
 
 @media screen and (max-width: 549px) {
-  .section-premium-features .grid,
-  .featured-collection .grid {
-    grid-template-columns: 1fr !important;
+  .section-premium-features .grid__item,
+  .featured-collection .grid__item {
+    flex: 1 1 100% !important;
   }
 }
 
@@ -338,7 +341,7 @@ body {
   background: #ffffff !important;
   border: 1px solid #f1f5f9 !important;
   border-radius: 20px !important;
-  padding: 24px !important;
+  padding: 16px !important; /* Slightly less padding to avoid crowding */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   height: 100% !important;
   width: 100% !important;
@@ -379,7 +382,7 @@ body {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important; /* contain for products, cover for SaaS images */
-  padding: 15% !important; /* Breathing room for product images */
+  padding: 10% !important; /* Slightly less padding for better visibility */
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
@@ -388,7 +391,7 @@ body {
 }
 
 .card__content {
-  padding: 24px 0 0 !important;
+  padding: 16px 0 0 !important;
   flex-grow: 1 !important;
   display: flex !important;
   flex-direction: column !important;
