@@ -29,25 +29,28 @@
   .saas-showcase-card {
     background: #ffffff !important;
     border: 1px solid #f1f5f9 !important;
-    border-radius: 24px !important;
+    border-radius: 20px !important;
     padding: 0 !important;
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
     overflow: hidden !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
-    transition: var(--transition-spring) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    height: 100% !important;
   }
   .saas-showcase-card:hover {
     transform: translateY(-8px) !important;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05) !important;
   }
   .saas-showcase-image {
-    height: 240px !important;
+    height: 200px !important;
     background: #f8fafc !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
-    overflow: hidden;
+    overflow: hidden !important;
+    border-bottom: 1px solid #f1f5f9 !important;
   }
   .saas-showcase-image img {
     width: 100% !important;
@@ -55,15 +58,15 @@
     object-fit: cover !important;
     transition: transform 0.8s ease;
   }
-  .saas-showcase-card:hover .saas-showcase-image img {
-    transform: scale(1.05);
-  }
   .saas-showcase-content {
-    padding: 32px !important;
+    padding: 24px !important;
     text-align: left !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
   .saas-showcase-title {
-    font-size: 22px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
     color: var(--text-primary) !important;
     margin-bottom: 12px !important;
@@ -72,7 +75,8 @@
     font-size: 15px !important;
     color: var(--text-secondary) !important;
     line-height: 1.6 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 20px !important;
+    flex-grow: 1 !important;
   }
   .saas-showcase-link {
     color: #6366f1 !important;
