@@ -163,6 +163,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-style: italic;
+  padding: 0px 10px !important;
 }
 
 .banner__text {
