@@ -93,18 +93,36 @@
   }
 
   .header__actions {
-    padding-right: 6px !important;
-  }
-
-  .header__icons {
-    position: absolute !important;
-    right: 45% !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    padding-right: 0 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 20px !important;
+    padding-right: 12px !important;
+  }
+
+  .header__icons-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+
+  .header__icons-group .desktop-localization-wrapper {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .header__icons-group .header__icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    color: var(--text-secondary) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .header__icons-group .header__icon:hover {
+    color: var(--text-primary) !important;
+    transform: scale(1.05) !important;
   }
 
   .header__install-btn {
@@ -139,9 +157,16 @@
     .header {
       gap: 16px !important;
     }
-    .header__icons {
-      right: 35% !important;
-      gap: 8px !important;
+    .header__actions {
+      gap: 12px !important;
+      padding-right: 8px !important;
+    }
+    .header__icons-group {
+      gap: 12px !important;
+    }
+    .header__icons-group .header__icon {
+      width: 40px !important;
+      height: 40px !important;
     }
   }
 
@@ -152,9 +177,19 @@
     .header-wrapper {
       min-width: calc(100vw - 40px);
     }
-    .header__icons {
-      right: 25% !important;
-      gap: 6px !important;
+    .header__actions {
+      gap: 8px !important;
+      padding-right: 6px !important;
+    }
+    .header__icons-group {
+      gap: 8px !important;
+    }
+    .header__icons-group .header__icon {
+      width: 36px !important;
+      height: 36px !important;
+    }
+    .desktop-localization-wrapper {
+      display: none !important;
     }
   }
 {%- endstyle -%}
@@ -186,92 +221,96 @@
 
     <div class="header__actions">
       <a href="https://apps.shopify.com/product-inquiry" class="header__install-btn">Install App</a>
+      
+      <!-- Header Icons Group -->
+      <div class="header__icons-group">
+        <!-- Country/Region Selector -->
+        <div class="desktop-localization-wrapper">
+          {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+            <localization-form class="small-hide medium-hide" data-prevent-hide>
+              {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+                <div>
+                  <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
+                  {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {% endif %}
+
+          {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+            <localization-form class="small-hide medium-hide" data-prevent-hide>
+              {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+                <div>
+                  <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+                  {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {%- endif -%}
+        </div>
+        
+        <!-- Search Icon -->
+        {% render 'header-search', input_id: 'Search-In-Modal' %}
+
+        <!-- Account/Profile Icon -->
+        {%- if shop.customer_accounts_enabled -%}
+          <a
+            href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+            class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
+            rel="nofollow"
+          >
+            {%- if section.settings.enable_customer_avatar -%}
+              <account-icon>
+                {%- if customer and customer.has_avatar? -%}
+                  {{ customer | avatar }}
+                {%- else -%}
+                  <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+                {%- endif -%}
+              </account-icon>
+            {%- else -%}
+              <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">
+              {%- liquid
+                if customer
+                  echo 'customer.account_fallback' | t
+                else
+                  echo 'customer.log_in' | t
+                endif
+              -%}
+            </span>
+          </a>
+        {%- endif -%}
+
+        <!-- App Blocks -->
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+          {%- endcase -%}
+        {%- endfor -%}
+
+        <!-- Cart Icon -->
+        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+          {% if cart == empty %}
+            <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+          {% else %}
+            <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+          {% endif %}
+          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              {%- if cart.item_count < 100 -%}
+                <span aria-hidden="true">{{ cart.item_count }}</span>
+              {%- endif -%}
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+          {%- endif -%}
+        </a>
+      </div>
     </div>
   </header>
 </header-wrapper>
-
-
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      <div class="desktop-localization-wrapper">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <localization-form class="small-hide medium-hide" data-prevent-hide>
-            {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {% endif %}
-
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <localization-form class="small-hide medium-hide" data-prevent-hide>
-            {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-                {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
-
-      {%- if shop.customer_accounts_enabled -%}
-        <a
-          href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
-          rel="nofollow"
-        >
-          {%- if section.settings.enable_customer_avatar -%}
-            <account-icon>
-              {%- if customer and customer.has_avatar? -%}
-                {{ customer | avatar }}
-              {%- else -%}
-                <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
-              {%- endif -%}
-            </account-icon>
-          {%- else -%}
-            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
-          {%- endif -%}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
-      {%- endif -%}
-
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% if cart == empty %}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {% else %}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a>
-    </div>
-  </header>
-</{{ header_tag }}>
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
