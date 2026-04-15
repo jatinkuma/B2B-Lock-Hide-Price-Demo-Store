@@ -96,6 +96,17 @@
     padding-right: 6px !important;
   }
 
+  .header__icons {
+    position: absolute !important;
+    right: 20% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
   .header__install-btn {
     background: var(--gradient-brand) !important;
     color: #ffffff !important;
@@ -128,6 +139,10 @@
     .header {
       gap: 16px !important;
     }
+    .header__icons {
+      right: 10% !important;
+      gap: 8px !important;
+    }
   }
 
   @media screen and (max-width: 749px) {
@@ -136,6 +151,10 @@
     }
     .header-wrapper {
       min-width: calc(100vw - 40px);
+    }
+    .header__icons {
+      right: 5% !important;
+      gap: 6px !important;
     }
   }
 {%- endstyle -%}
