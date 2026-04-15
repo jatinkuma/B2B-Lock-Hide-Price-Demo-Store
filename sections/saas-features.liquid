@@ -1,54 +1,125 @@
-<section class="saas-features section-premium-features">
+{%- style -%}
+  .saas-features {
+    padding: var(--space-12) 0 !important;
+    background: #ffffff !important;
+  }
+  .saas-features .collection__title {
+    margin-bottom: 64px !important;
+  }
+  .saas-features .section-label {
+    display: block;
+    color: #6366f1 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 16px !important;
+  }
+  .saas-features .title {
+    font-size: 42px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    color: var(--text-primary) !important;
+  }
+  .saas-features-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+  }
+  .saas-feature-card {
+    background: #ffffff !important;
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 24px !important;
+    padding: 40px 32px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    transition: var(--transition-spring) !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .saas-feature-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05) !important;
+    border-color: #e2e8f0 !important;
+  }
+  .saas-feature-icon {
+    width: 48px !important;
+    height: 48px !important;
+    background: #f5f3ff !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 24px !important;
+    color: #6366f1 !important;
+  }
+  .saas-feature-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 12px !important;
+  }
+  .saas-feature-text {
+    font-size: 15px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+  }
+  @media screen and (max-width: 989px) {
+    .saas-features-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+  @media screen and (max-width: 749px) {
+    .saas-features-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+{%- endstyle -%}
+
+<section class="saas-features">
   <div class="page-width">
-    {%- if section.settings.title != blank -%}
-      <div class="collection__title title-wrapper title-wrapper--no-top-margin center">
-        <h2 class="title inline-richtext {{ section.settings.heading_size }} saas-gradient-title">
-          {{ section.settings.title }}
-        </h2>
-        {%- if section.settings.description != blank -%}
-          <div class="collection__description rte saas-description">
-            {{ section.settings.description }}
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
+    <div class="collection__title center">
+      <span class="section-label">Features</span>
+      <h2 class="title">Everything you need to grow</h2>
+    </div>
 
     <div class="saas-features-grid">
-      {%- for block in section.blocks -%}
-        <div class="saas-feature-card stagger-{{ forloop.index }}" {{ block.shopify_attributes }}>
-          <div class="saas-feature-icon">
-            {%- if block.settings.icon_svg != blank -%}
-              {{ block.settings.icon_svg }}
-            {%- else -%}
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
-            {%- endif -%}
-          </div>
-          <h3 class="saas-feature-title h4">{{ block.settings.title }}</h3>
-          <p class="saas-feature-text">{{ block.settings.text }}</p>
+      <div class="saas-feature-card">
+        <div class="saas-feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
         </div>
-      {%- endfor -%}
+        <h3 class="saas-feature-title">Lightning Fast Setup</h3>
+        <p class="saas-feature-text">Install and go live in under 2 minutes. No coding required, no complex configurations.</p>
+      </div>
+
+      <div class="saas-feature-card">
+        <div class="saas-feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <h3 class="saas-feature-title">Smart Analytics</h3>
+        <p class="saas-feature-text">Real-time insights into your store performance with actionable recommendations.</p>
+      </div>
+
+      <div class="saas-feature-card">
+        <div class="saas-feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        </div>
+        <h3 class="saas-feature-title">Fully Customizable</h3>
+        <p class="saas-feature-text">Match your brand perfectly with flexible design controls and theme integration.</p>
+      </div>
+
+      <div class="saas-feature-card">
+        <div class="saas-feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3 class="saas-feature-title">Enterprise Security</h3>
+        <p class="saas-feature-text">Bank-level encryption and GDPR compliance. Your data is always safe with us.</p>
+      </div>
     </div>
   </div>
 </section>
-
-{%- style -%}
-  .saas-gradient-title {
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: var(--space-4) !important;
-  }
-  .saas-description {
-    color: var(--text-secondary) !important;
-    font-size: 1.25rem;
-    max-width: 600px;
-    margin: 0 auto var(--space-8);
-  }
-  .saas-feature-text {
-    color: var(--text-secondary);
-    margin: 0;
-  }
-{%- endstyle -%}
 
 {% schema %}
 {

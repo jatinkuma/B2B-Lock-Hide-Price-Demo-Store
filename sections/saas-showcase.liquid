@@ -1,75 +1,144 @@
-<section class="saas-showcase section-premium-showcase">
-  <div class="page-width">
-    {%- if section.settings.title != blank -%}
-      <div class="collection__title title-wrapper title-wrapper--no-top-margin center">
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
-          {{ section.settings.title }}
-        </h2>
-      </div>
-    {%- endif -%}
-
-    <div class="saas-showcase-container">
-      {%- for block in section.blocks -%}
-        <div class="saas-showcase-card" {{ block.shopify_attributes }}>
-          <div class="saas-showcase-content">
-            <h3 class="h2">{{ block.settings.title }}</h3>
-            <div class="saas-showcase-text rte">
-              {{ block.settings.text }}
-            </div>
-            {%- if block.settings.button_label != blank -%}
-              <a href="{{ block.settings.button_link }}" class="button button--secondary">
-                {{ block.settings.button_label }} <span class="view-arrow">→</span>
-              </a>
-            {%- endif -%}
-          </div>
-          <div class="saas-showcase-image">
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'showcase-img' }}
-            {%- else -%}
-              {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-          </div>
-        </div>
-      {%- endfor -%}
-    </div>
-  </div>
-</section>
-
 {%- style -%}
-  .saas-showcase-container {
-    padding: var(--space-6) 0;
+  .saas-showcase {
+    padding: var(--space-12) 0 !important;
+    background: #ffffff !important;
   }
-  .saas-showcase-content h3 {
-    margin-bottom: var(--space-4);
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .saas-showcase .collection__title {
+    margin-bottom: 64px !important;
+  }
+  .saas-showcase .section-label {
+    display: block;
+    color: #6366f1 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 16px !important;
+  }
+  .saas-showcase .title {
+    font-size: 42px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    color: var(--text-primary) !important;
+  }
+  .saas-showcase-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+  }
+  .saas-showcase-card {
+    background: #ffffff !important;
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 24px !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    transition: var(--transition-spring) !important;
+  }
+  .saas-showcase-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05) !important;
+  }
+  .saas-showcase-image {
+    height: 240px !important;
+    background: #f8fafc !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden;
+  }
+  .saas-showcase-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.8s ease;
+  }
+  .saas-showcase-card:hover .saas-showcase-image img {
+    transform: scale(1.05);
+  }
+  .saas-showcase-content {
+    padding: 32px !important;
+    text-align: left !important;
+  }
+  .saas-showcase-title {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 12px !important;
   }
   .saas-showcase-text {
-    margin-bottom: var(--space-6);
-    color: var(--text-secondary);
-    font-size: 1.125rem;
+    font-size: 15px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
   }
-  .showcase-img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--glow-card);
+  .saas-showcase-link {
+    color: #6366f1 !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
   }
-  .view-arrow {
-    display: inline-block;
+  .saas-showcase-link span {
     transition: transform 0.3s ease;
   }
-  .saas-showcase-card:hover .view-arrow {
+  .saas-showcase-card:hover .saas-showcase-link span {
     transform: translateX(5px);
   }
   @media screen and (max-width: 989px) {
-    .saas-showcase-card {
-      grid-template-columns: 1fr;
-      padding: var(--space-6);
+    .saas-showcase-grid {
+      grid-template-columns: 1fr !important;
     }
   }
 {%- endstyle -%}
+
+<section class="saas-showcase">
+  <div class="page-width">
+    <div class="collection__title center">
+      <span class="section-label">Use Cases</span>
+      <h2 class="title">Built for modern commerce</h2>
+    </div>
+
+    <div class="saas-showcase-grid">
+      <div class="saas-showcase-card">
+        <div class="saas-showcase-image">
+          <img src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/abstract-bubbles-1.jpg?v=1713175000" alt="Subscription Boxes" loading="lazy">
+        </div>
+        <div class="saas-showcase-content">
+          <h3 class="saas-showcase-title">Subscription Boxes</h3>
+          <p class="saas-showcase-text">Recurring revenue made easy with fully managed subscription flows and automated billing.</p>
+          <a href="/pages/subscriptions" class="saas-showcase-link">View <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="saas-showcase-card">
+        <div class="saas-showcase-image">
+          <img src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/abstract-bubbles-2.jpg?v=1713175000" alt="Product Bundles" loading="lazy">
+        </div>
+        <div class="saas-showcase-content">
+          <h3 class="saas-showcase-title">Product Bundles</h3>
+          <p class="saas-showcase-text">Increase AOV by letting customers create custom bundles with dynamic discount logic.</p>
+          <a href="/pages/bundles" class="saas-showcase-link">View <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="saas-showcase-card">
+        <div class="saas-showcase-image">
+          <img src="https://cdn.shopify.com/s/files/1/0704/6378/2946/files/abstract-bubbles-3.jpg?v=1713175000" alt="Pre-Order Manager" loading="lazy">
+        </div>
+        <div class="saas-showcase-content">
+          <h3 class="saas-showcase-title">Pre-Order Manager</h3>
+          <p class="saas-showcase-text">Capture demand before launch and build anticipation for new drops with ease.</p>
+          <a href="/pages/pre-orders" class="saas-showcase-link">View <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {

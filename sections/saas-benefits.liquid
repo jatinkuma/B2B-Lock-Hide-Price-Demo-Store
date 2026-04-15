@@ -1,0 +1,112 @@
+{%- style -%}
+  .saas-benefits {
+    padding: var(--space-12) 0 !important;
+    background: #ffffff !important;
+  }
+  .saas-benefits-container {
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 40px !important;
+    padding: 80px !important;
+    background: #ffffff !important;
+    text-align: center !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02) !important;
+  }
+  .saas-benefits .title {
+    font-size: 36px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 64px !important;
+    color: var(--text-primary) !important;
+  }
+  .saas-benefits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 48px !important;
+  }
+  .saas-benefit-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .saas-benefit-icon {
+    width: 48px !important;
+    height: 48px !important;
+    background: #f5f3ff !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 24px !important;
+    color: #6366f1 !important;
+  }
+  .saas-benefit-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 12px !important;
+  }
+  .saas-benefit-text {
+    font-size: 15px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+  }
+  @media screen and (max-width: 989px) {
+    .saas-benefits-container {
+      padding: 40px !important;
+    }
+    .saas-benefits-grid {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+    }
+  }
+{%- endstyle -%}
+
+<section class="saas-benefits">
+  <div class="page-width">
+    <div class="saas-benefits-container">
+      <h2 class="title">Why merchants love AppFlow</h2>
+      
+      <div class="saas-benefits-grid">
+        <div class="saas-benefit-item">
+          <div class="saas-benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3 class="saas-benefit-title">2-Minute Setup</h3>
+          <p class="saas-benefit-text">No dev skills needed. Install, configure, and launch in minutes with our guided onboarding.</p>
+        </div>
+
+        <div class="saas-benefit-item">
+          <div class="saas-benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          </div>
+          <h3 class="saas-benefit-title">3x Higher Conversions</h3>
+          <p class="saas-benefit-text">Merchants see an average 3x lift in conversion rate within 30 days of implementation.</p>
+        </div>
+
+        <div class="saas-benefit-item">
+          <div class="saas-benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3 class="saas-benefit-title">Endlessly Customizable</h3>
+          <p class="saas-benefit-text">Every widget, flow, and notification adapts to your brand identity perfectly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SaaS Benefits",
+  "tag": "section",
+  "class": "section",
+  "presets": [
+    {
+      "name": "SaaS Benefits"
+    }
+  ]
+}
+{% endschema %}
