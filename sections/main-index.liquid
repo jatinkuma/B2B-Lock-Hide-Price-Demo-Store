@@ -41,6 +41,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 var(--space-4);
   }
 
   .hero-premium__eyebrow {
@@ -68,6 +69,9 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: fadeInUp 0.7s ease both 0.1s;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .hero-premium__subheading {
@@ -106,6 +110,40 @@
     gap: var(--space-6);
     opacity: 0.5;
     filter: grayscale(1);
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero-premium__content {
+      padding: 0 var(--space-2);
+    }
+    
+    .hero-premium__headline {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      padding: 0 var(--space-2);
+    }
+    
+    .hero-premium__subheading {
+      font-size: 1.125rem;
+      max-width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .hero-premium__content {
+      padding: 0 var(--space-1);
+    }
+    
+    .hero-premium__headline {
+      font-size: 2rem;
+      line-height: 1.3;
+      padding: 0 var(--space-1);
+    }
+    
+    .hero-premium__subheading {
+      font-size: 1rem;
+      max-width: 95%;
+    }
   }
 {%- endstyle -%}
 
