@@ -17,19 +17,28 @@
     padding: var(--space-12) 0;
     position: relative;
     overflow: hidden;
+    background: var(--gradient-hero) !important;
   }
   .saas-cta-content {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    padding: var(--space-12) var(--space-6);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--glass-blur);
   }
   .saas-cta-heading {
     font-size: var(--text-h2) !important;
     font-weight: 800 !important;
-    letter-spacing: -0.04em !important;
+    letter-spacing: -0.05em !important;
     margin-bottom: var(--space-4) !important;
-    color: #fff !important;
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
   }
   .saas-cta-text {
     font-size: 1.25rem;

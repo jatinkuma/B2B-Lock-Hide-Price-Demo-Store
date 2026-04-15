@@ -2,11 +2,11 @@
   <div class="page-width">
     {%- if section.settings.title != blank -%}
       <div class="collection__title title-wrapper title-wrapper--no-top-margin center">
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }} saas-gradient-title">
           {{ section.settings.title }}
         </h2>
         {%- if section.settings.description != blank -%}
-          <div class="collection__description rte">
+          <div class="collection__description rte saas-description">
             {{ section.settings.description }}
           </div>
         {%- endif -%}
@@ -15,12 +15,12 @@
 
     <div class="saas-features-grid">
       {%- for block in section.blocks -%}
-        <div class="saas-feature-card" {{ block.shopify_attributes }}>
+        <div class="saas-feature-card stagger-{{ forloop.index }}" {{ block.shopify_attributes }}>
           <div class="saas-feature-icon">
             {%- if block.settings.icon_svg != blank -%}
               {{ block.settings.icon_svg }}
             {%- else -%}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
             {%- endif -%}
           </div>
           <h3 class="saas-feature-title h4">{{ block.settings.title }}</h3>
@@ -30,6 +30,25 @@
     </div>
   </div>
 </section>
+
+{%- style -%}
+  .saas-gradient-title {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-4) !important;
+  }
+  .saas-description {
+    color: var(--text-secondary) !important;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto var(--space-8);
+  }
+  .saas-feature-text {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+{%- endstyle -%}
 
 {% schema %}
 {
