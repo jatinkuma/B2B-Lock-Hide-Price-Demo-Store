@@ -93,7 +93,31 @@
   }
 
   .header__actions {
-    padding-right: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-left: auto !important;
+    padding-right: 12px !important;
+  }
+
+  .header__actions .desktop-localization-wrapper {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .header__actions .header__icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    color: var(--text-secondary) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .header__actions .header__icon:hover {
+    color: var(--text-primary) !important;
+    transform: scale(1.05) !important;
   }
 
   .header__install-btn {
@@ -128,6 +152,14 @@
     .header {
       gap: 16px !important;
     }
+    .header__actions {
+      gap: 12px !important;
+      padding-right: 8px !important;
+    }
+    .header__actions .header__icon {
+      width: 40px !important;
+      height: 40px !important;
+    }
   }
 
   @media screen and (max-width: 749px) {
@@ -136,6 +168,17 @@
     }
     .header-wrapper {
       min-width: calc(100vw - 40px);
+    }
+    .header__actions {
+      gap: 8px !important;
+      padding-right: 6px !important;
+    }
+    .header__actions .header__icon {
+      width: 36px !important;
+      height: 36px !important;
+    }
+    .header__actions .desktop-localization-wrapper {
+      display: none !important;
     }
   }
 {%- endstyle -%}
@@ -167,12 +210,8 @@
 
     <div class="header__actions">
       <a href="https://apps.shopify.com/product-inquiry" class="header__install-btn">Install App</a>
-    </div>
-  </header>
-</header-wrapper>
-
-
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+      
+      <!-- Country/Region Selector -->
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form class="small-hide medium-hide" data-prevent-hide>
@@ -196,8 +235,11 @@
           </localization-form>
         {%- endif -%}
       </div>
+      
+      <!-- Search Icon -->
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
+      <!-- Account/Profile Icon -->
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -227,6 +269,7 @@
         </a>
       {%- endif -%}
 
+      <!-- App Blocks -->
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
@@ -234,6 +277,7 @@
         {%- endcase -%}
       {%- endfor -%}
 
+      <!-- Cart Icon -->
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {% if cart == empty %}
           <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
@@ -252,7 +296,7 @@
       </a>
     </div>
   </header>
-</{{ header_tag }}>
+</header-wrapper>
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
