@@ -95,19 +95,31 @@
   .header__actions {
     display: flex !important;
     align-items: center !important;
-    gap: 20px !important;
+    gap: 16px !important;
     padding-right: 12px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .header__actions .desktop-localization-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .header__actions .desktop-localization-wrapper .localization-form {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .header__install-btn {
+    flex-shrink: 0 !important;
   }
 
   .header__icons-group {
     display: flex !important;
     align-items: center !important;
     gap: 16px !important;
-  }
-
-  .header__icons-group .desktop-localization-wrapper {
-    display: flex !important;
-    align-items: center !important;
+    flex-shrink: 0 !important;
   }
 
   .header__icons-group .header__icon {
@@ -160,6 +172,7 @@
     .header__actions {
       gap: 12px !important;
       padding-right: 8px !important;
+      flex-wrap: nowrap !important;
     }
     .header__icons-group {
       gap: 12px !important;
@@ -180,6 +193,7 @@
     .header__actions {
       gap: 8px !important;
       padding-right: 6px !important;
+      flex-wrap: nowrap !important;
     }
     .header__icons-group {
       gap: 8px !important;
@@ -220,35 +234,35 @@
     </nav>
 
     <div class="header__actions">
+      <!-- Country/Region Selector -->
+      <div class="desktop-localization-wrapper">
+        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+          <localization-form class="small-hide medium-hide" data-prevent-hide>
+            {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
+                {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {% endif %}
+
+        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+          <localization-form class="small-hide medium-hide" data-prevent-hide>
+            {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+                {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+      </div>
+      
       <a href="https://apps.shopify.com/product-inquiry" class="header__install-btn">Install App</a>
       
       <!-- Header Icons Group -->
       <div class="header__icons-group">
-        <!-- Country/Region Selector -->
-        <div class="desktop-localization-wrapper">
-          {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-            <localization-form class="small-hide medium-hide" data-prevent-hide>
-              {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
-                <div>
-                  <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                  {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
-                </div>
-              {%- endform -%}
-            </localization-form>
-          {% endif %}
-
-          {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-            <localization-form class="small-hide medium-hide" data-prevent-hide>
-              {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-                <div>
-                  <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-                  {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
-                </div>
-              {%- endform -%}
-            </localization-form>
-          {%- endif -%}
-        </div>
-        
         <!-- Search Icon -->
         {% render 'header-search', input_id: 'Search-In-Modal' %}
 
