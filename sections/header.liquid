@@ -23,21 +23,22 @@
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: auto !important;
-    min-width: 600px;
-    max-width: 90vw;
+    min-width: 680px;
+    max-width: 95vw;
     background: var(--glass-bg) !important;
     backdrop-filter: var(--glass-blur) !important;
     border: 1px solid var(--glass-border) !important;
     border-radius: var(--radius-pill) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-    z-index: 1000 !important;
-    padding: 8px 16px !important;
-    transition: var(--transition-base) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important;
+    z-index: 2000 !important;
+    padding: 6px 12px !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .header-wrapper.header--scrolled {
     top: 12px !important;
-    padding: 4px 12px !important;
+    padding: 4px 10px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06) !important;
   }
 
   .header {
@@ -45,68 +46,116 @@
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 24px !important;
+    gap: 32px !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .header__logo {
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 16px !important;
+  }
+
+  .header__inline-menu {
+    flex-grow: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .header__menu-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
   }
 
   .header__menu-item {
     color: var(--text-secondary) !important;
     font-size: 14px !important;
     font-weight: 500 !important;
-    padding: 8px 16px !important;
-    text-decoration: none;
+    padding: 10px 18px !important;
+    text-decoration: none !important;
+    border-radius: var(--radius-pill) !important;
+    transition: all 0.2s ease !important;
+    display: block !important;
+    white-space: nowrap !important;
   }
 
   .header__menu-item:hover {
     color: var(--text-primary) !important;
+    background: rgba(0, 0, 0, 0.03) !important;
+  }
+
+  .header__actions {
+    padding-right: 6px !important;
   }
 
   .header__install-btn {
     background: var(--gradient-brand) !important;
     color: #ffffff !important;
-    padding: 10px 24px !important;
+    padding: 12px 28px !important;
     border-radius: var(--radius-pill) !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
-    transition: var(--transition-spring) !important;
-    white-space: nowrap;
+    transition: all 0.3s ease !important;
+    display: inline-block !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2) !important;
+    white-space: nowrap !important;
   }
 
   .header__install-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3) !important;
+    filter: brightness(1.05);
+  }
+
+  @media screen and (max-width: 989px) {
+    .header-wrapper {
+      min-width: 90vw;
+      padding: 6px 12px !important;
+    }
+    .header__menu-item {
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+    }
+    .header {
+      gap: 16px !important;
+    }
   }
 
   @media screen and (max-width: 749px) {
-    .header-wrapper {
-      min-width: 90vw;
-      top: 12px !important;
-    }
     .header__inline-menu {
-      display: none;
+      display: none !important;
+    }
+    .header-wrapper {
+      min-width: calc(100vw - 40px);
     }
   }
 {%- endstyle -%}
 
 <header-wrapper class="header-wrapper">
-  <header class="header page-width">
+  <header class="header">
     <div class="header__logo">
-      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+      <a href="{{ routes.root_url }}" class="header__heading-link link focus-inset">
         {%- if settings.logo != blank -%}
           {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-          {{ settings.logo | image_url: width: 200 | image_tag: class: 'header__heading-logo', alt: logo_alt }}
+          {{ settings.logo | image_url: width: 240 | image_tag: class: 'header__heading-logo', alt: logo_alt, style: 'height: auto; width: 120px;' }}
         {%- else -%}
-          <span class="h4" style="font-weight: 800; letter-spacing: -0.03em;">{{ shop.name }}</span>
+          <span class="h4" style="font-weight: 800; letter-spacing: -0.04em; color: var(--text-primary);">{{ shop.name }}</span>
         {%- endif -%}
       </a>
     </div>
 
     <nav class="header__inline-menu">
-      <ul class="list-menu list-menu--inline" role="list">
-        {%- for link in section.settings.menu.links -%}
+      <ul class="header__menu-list" role="list">
+        {%- for link in linklists[section.settings.menu].links -%}
           <li>
-            <a href="{{ link.url }}" class="header__menu-item list-menu__item link link--text focus-inset">
-              <span>{{ link.label | escape }}</span>
+            <a href="{{ link.url }}" class="header__menu-item">
+              {{ link.title | escape }}
             </a>
           </li>
         {%- endfor -%}
