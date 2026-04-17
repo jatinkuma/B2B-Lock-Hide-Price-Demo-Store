@@ -2312,6 +2312,7 @@ input[type='checkbox'] {
 /* section-header */
 .section-header.shopify-section-group-header-group {
   z-index: 3;
+  background: var(--gradient-hero) !important;
 }
 
 .shopify-section-header-sticky {
