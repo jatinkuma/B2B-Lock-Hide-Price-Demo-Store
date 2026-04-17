@@ -6,7 +6,7 @@
   
   /* Backgrounds: Clean white/light background with subtle soft gradients */
   --gradient-hero: radial-gradient(circle at 50% 0%, #f5f3ff 0%, #ffffff 50%);
-  --gradient-heero: radial-gradient(circle at 50% 0%, #f5f3ff 0%, #ffffff 50%, #ffffff 100%);
+  --gradient-heero: radial-gradient(circle at 50% 0%, #f5f3ff 0%, #ffffff 50% , #ffffff 50%);
   --gradient-brand: linear-gradient(135deg, #6366f1, #a855f7);
   --gradient-cta: linear-gradient(135deg, #7c3aed, #ec4899);
   --gradient-vibrant: linear-gradient(135deg, #6366f1, #ec4899); /* For CTA section */
