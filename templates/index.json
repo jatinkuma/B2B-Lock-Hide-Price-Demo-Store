@@ -100,9 +100,9 @@
       "settings": {
         "collection": "beauty-products",
         "products_to_show": 12,
-        "title": "Protected Product Catalog",
+        "title": "Core Modules",
         "heading_size": "h1",
-        "description": "Show how pricing and purchasing can be revealed only to approved wholesale customers.",
+        "description": "Real products from your demo store, ready to showcase hidden pricing and controlled B2B access.",
         "show_description": false,
         "description_style": "body",
         "columns_desktop": 4,
