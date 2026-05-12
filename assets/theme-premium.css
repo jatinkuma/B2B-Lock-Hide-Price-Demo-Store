@@ -1,15 +1,15 @@
 :root {
-  /* Colors & Design System - Light Premium SaaS Palette */
-  --color-brand-1: #6366f1; /* Indigo */
-  --color-brand-2: #8b5cf6; /* Violet */
-  --color-brand-3: #ec4899; /* Pink */
-  
-  /* Backgrounds: Clean white/light background with subtle soft gradients */
-  --gradient-hero: radial-gradient(circle at 50% 0%, #f5f3ff 0%, #ffffff 50%);
-  --gradient-heero: radial-gradient(circle at 50% 0%, #f5f3ff 0%, #ffffff 50% , #ffffff 50%);
-  --gradient-brand: linear-gradient(135deg, #6366f1, #a855f7);
-  --gradient-cta: linear-gradient(135deg, #7c3aed, #ec4899);
-  --gradient-vibrant: linear-gradient(135deg, #6366f1, #ec4899); /* For CTA section */
+  /* Colors & Design System - B2B App Palette */
+  --color-brand-1: #1d4ed8;
+  --color-brand-2: #2563eb;
+  --color-brand-3: #60a5fa;
+
+  /* Backgrounds and gradients */
+  --gradient-hero: radial-gradient(circle at 50% 0%, #dbeafe 0%, #ffffff 52%);
+  --gradient-heero: radial-gradient(circle at 50% 0%, #dbeafe 0%, #ffffff 52%, #ffffff 52%);
+  --gradient-brand: linear-gradient(135deg, #1d4ed8, #2563eb);
+  --gradient-cta: linear-gradient(135deg, #1d4ed8, #60a5fa);
+  --gradient-vibrant: linear-gradient(135deg, #1d4ed8, #3b82f6);
   
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.05);
@@ -20,13 +20,13 @@
   --surface-2: #f1f5f9; /* Hover BG */
   --surface-3: #e2e8f0;
   
-  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-primary: 'Segoe UI', 'Trebuchet MS', sans-serif;
   --text-hero: clamp(3.5rem, 8vw, 6.5rem);
   --text-h2: clamp(2.5rem, 5vw, 4rem);
   --text-primary: #1e293b; /* Deep Slate */
   --text-secondary: #64748b; /* Soft Slate */
-  --text-gradient: linear-gradient(135deg, #1e293b 40%, #8b5cf6 100%);
-  --text-vibrant: linear-gradient(135deg, #6366f1, #ec4899); /* For specific words */
+  --text-gradient: linear-gradient(135deg, #0f172a 35%, #2563eb 100%);
+  --text-vibrant: linear-gradient(135deg, #1d4ed8, #60a5fa);
   
   --space-2: 1rem;
   --space-4: 2rem;
@@ -39,8 +39,8 @@
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: 600ms cubic-bezier(0.16, 1, 0.3, 1);
   
-  --glow-brand: 0 10px 40px rgba(99, 102, 241, 0.1);
-  --glow-strong: 0 20px 60px rgba(99, 102, 241, 0.2);
+  --glow-brand: 0 10px 40px rgba(37, 99, 235, 0.12);
+  --glow-strong: 0 20px 60px rgba(37, 99, 235, 0.22);
   --glow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 

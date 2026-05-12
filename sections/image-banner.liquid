@@ -1,12 +1,14 @@
 {%- style -%}
   .banner.premium-hero {
     min-height: 100vh !important;
-    background: var(--gradient-hero) !important;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(31, 111, 235, 0.18), transparent 28%),
+      radial-gradient(circle at 85% 22%, rgba(59, 130, 246, 0.12), transparent 24%),
+      linear-gradient(90deg, #111827 0 36%, #f8fbff 36% 100%) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    text-align: center !important;
-    padding: 140px 20px 100px !important;
+    padding: 130px 24px 90px !important;
     position: relative;
     overflow: hidden;
   }
@@ -14,142 +16,500 @@
   .banner.premium-hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.05), transparent 50%);
-    transform: translateX(-50%);
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 30%),
+      radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.08), transparent 45%);
     pointer-events: none;
+  }
+
+  .app-hero-shell {
+    width: min(1280px, 100%);
+    position: relative;
+    z-index: 1;
+  }
+
+  .app-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 48px;
+    align-items: center;
+  }
+
+  .app-hero-copy {
+    color: #ffffff;
+    padding-right: 12px;
   }
 
   .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
-    background: rgba(99, 102, 241, 0.05);
-    border: 1px solid rgba(99, 102, 241, 0.1);
-    border-radius: var(--radius-pill);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-brand-1);
-    margin-bottom: 32px;
-    animation: fadeInUp 0.8s ease forwards;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #dbeafe;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
   }
 
   .hero-badge::before {
     content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--color-brand-1);
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--color-brand-1);
+    background: #60a5fa;
+    box-shadow: 0 0 18px rgba(96, 165, 250, 0.8);
   }
 
   .banner__heading {
-    font-size: var(--text-hero) !important;
+    font-size: clamp(3rem, 6vw, 5.3rem) !important;
     font-weight: 800 !important;
-    letter-spacing: -0.04em !important;
-    line-height: 1.05 !important;
-    color: var(--text-primary) !important;
-    max-width: 900px !important;
-    margin: 0 auto 24px !important;
-    animation: fadeInUp 0.8s ease 0.1s forwards;
-    opacity: 0;
+    letter-spacing: -0.05em !important;
+    line-height: 1 !important;
+    color: #ffffff !important;
+    margin: 0 0 22px !important;
+    max-width: 760px !important;
   }
 
   .banner__heading .highlight {
-    background: var(--text-vibrant);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-style: italic;
+    color: #60a5fa;
+    display: inline-block;
   }
 
   .banner__text {
-    font-size: 20px !important;
-    color: var(--text-secondary) !important;
-    max-width: 600px !important;
-    margin: 0 auto 48px !important;
-    line-height: 1.6 !important;
-    animation: fadeInUp 0.8s ease 0.2s forwards;
-    opacity: 0;
+    font-size: 19px !important;
+    line-height: 1.7 !important;
+    color: rgba(255, 255, 255, 0.84) !important;
+    max-width: 650px !important;
+    margin: 0 0 28px !important;
+  }
+
+  .app-hero-points {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+    margin: 0 0 34px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .app-hero-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #e5eefc;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .app-hero-points li::before {
+    content: '✓';
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1d4ed8;
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 1px;
   }
 
   .banner__buttons {
     display: flex !important;
-    gap: 20px !important;
-    justify-content: center !important;
-    animation: fadeInUp 0.8s ease 0.3s forwards;
-    opacity: 0;
+    gap: 16px !important;
+    flex-wrap: wrap;
+    justify-content: flex-start !important;
+    margin-bottom: 28px;
+  }
+
+  .button--primary-hero,
+  .button--secondary-hero {
+    min-height: 56px;
+    padding: 16px 28px !important;
+    border-radius: 16px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   }
 
   .button--primary-hero {
-    background: var(--gradient-brand) !important;
+    background: linear-gradient(135deg, #1d4ed8, #2563eb) !important;
     color: #ffffff !important;
-    border: none !important;
-    padding: 18px 36px !important;
-    border-radius: var(--radius-pill) !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    transition: var(--transition-spring) !important;
+    box-shadow: 0 20px 45px rgba(37, 99, 235, 0.3);
   }
 
   .button--primary-hero:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 24px 55px rgba(37, 99, 235, 0.38);
   }
 
   .button--secondary-hero {
-    background: transparent !important;
-    color: var(--text-primary) !important;
-    border: 1px solid #e2e8f0 !important;
-    padding: 18px 36px !important;
-    border-radius: var(--radius-pill) !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    transition: var(--transition-spring) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
   }
 
   .button--secondary-hero:hover {
-    background: #f8fafc !important;
-    border-color: #cbd5e1 !important;
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 14px;
+  }
+
+  .hero-meta strong {
+    color: #ffffff;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .app-hero-visual {
+    position: relative;
+  }
+
+  .hero-frame {
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.16);
+    border-radius: 30px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .visual-card {
+    border-radius: 24px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  }
+
+  .visual-card + .visual-card {
+    margin-top: 20px;
+  }
+
+  .visual-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    background: #eff6ff;
+    border-bottom: 1px solid #dbeafe;
+  }
+
+  .visual-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .visual-pill {
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1d4ed8;
+    background: #dbeafe;
+  }
+
+  .rule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 20px;
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+  }
+
+  .rule-chip {
+    padding: 16px;
+    border-radius: 16px;
+    background: #f8fbff;
+    border: 1px solid #dbeafe;
+  }
+
+  .rule-chip strong {
+    display: block;
+    color: #0f172a;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .rule-chip span {
+    display: block;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .lock-preview {
+    position: relative;
+    padding: 26px;
+    background: linear-gradient(180deg, #f3f4f6, #e5e7eb);
+    min-height: 280px;
+  }
+
+  .store-blur {
+    position: absolute;
+    inset: 18px;
+    border-radius: 22px;
+    background:
+      linear-gradient(180deg, rgba(17, 24, 39, 0.06), rgba(17, 24, 39, 0.08)),
+      linear-gradient(135deg, #dbeafe, #f8fafc);
+    filter: blur(0.2px);
+  }
+
+  .lock-modal {
+    position: relative;
+    z-index: 1;
+    width: min(320px, 100%);
+    margin: 34px auto 0;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+  }
+
+  .lock-icon {
+    width: 58px;
+    height: 58px;
+    margin: -50px auto 14px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+    color: #ffffff;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 28px rgba(37, 99, 235, 0.3);
+  }
+
+  .lock-modal h3 {
+    margin: 0 0 8px;
+    color: #0f172a;
+    font-size: 28px;
+    line-height: 1.1;
+  }
+
+  .lock-modal p {
+    margin: 0 0 16px;
+    color: #475569;
+    font-size: 15px;
+  }
+
+  .passcode-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .passcode-row span {
+    height: 44px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    display: block;
+    position: relative;
+  }
+
+  .passcode-row span::after {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #64748b;
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .lock-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 989px) {
+    .banner.premium-hero {
+      min-height: auto !important;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(31, 111, 235, 0.16), transparent 30%),
+        linear-gradient(180deg, #111827 0 44%, #f8fbff 44% 100%) !important;
+    }
+
+    .app-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+
+    .app-hero-copy {
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .banner.premium-hero {
+      padding: 112px 16px 70px !important;
+    }
+
+    .banner__heading {
+      font-size: 42px !important;
+    }
+
+    .banner__text {
+      font-size: 17px !important;
+    }
+
+    .app-hero-points {
+      grid-template-columns: 1fr;
+    }
+
+    .rule-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-frame {
+      padding: 16px;
+      border-radius: 22px;
+    }
+
+    .visual-topbar {
+      padding: 16px;
+    }
+
+    .visual-title {
+      font-size: 16px;
+    }
+
+    .lock-modal h3 {
+      font-size: 24px;
+    }
   }
 {%- endstyle -%}
 
 <div id="Banner-{{ section.id }}" class="banner premium-hero">
-  <div class="banner__content page-width">
-    <div class="hero-badge">
-      <span>Trusted by merchants worldwide</span>
-    </div>
-    
-    <h2 class="banner__heading">
-      Supercharge Your <span class="highlight">E-commerce</span> Growth Today
-    </h2>
+  <div class="app-hero-shell">
+    <div class="app-hero-grid">
+      <div class="app-hero-copy">
+        <div class="hero-badge">B2B Access Control for Shopify</div>
 
-    <div class="banner__text">
-      The all-in-one toolkit designed to automate your workflows, increase average order value, and scale your brand effortlessly.
-    </div>
+        <h1 class="banner__heading">
+          Control who can <span class="highlight">see prices</span>, products and private pages
+        </h1>
 
-    {% comment %} <div class="banner__buttons">
-      <a href="/collections/all" class="button--primary-hero">
-        Get Started Free <span>→</span>
-      </a>
-      <a href="#demo" class="button--secondary-hero">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        Watch Demo
-      </a>
-    </div> {% endcomment %}
+        <div class="banner__text">
+          ESTS B2B Lock & Hide Price helps wholesale and trade-only stores hide pricing, lock storefront content, and approve the right buyers with login, passcode, secret link and customer-based rules.
+        </div>
+
+        <ul class="app-hero-points">
+          <li>Hide prices and Add to Cart for guests or unauthorized visitors</li>
+          <li>Lock products, collections, pages and custom URLs</li>
+          <li>Target guest, logged-in and tagged customers with flexible rules</li>
+          <li>Replace hidden pricing with custom text like “Login to view price”</li>
+        </ul>
+
+        <div class="banner__buttons">
+          <a href="https://apps.shopify.com/login-to-see-price" class="button--primary-hero">
+            View Shopify App
+          </a>
+          <a href="/collections/all" class="button--secondary-hero">
+            Explore Demo Catalog
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div>
+            <strong>Login</strong>
+            Customer account access
+          </div>
+          <div>
+            <strong>Passcode</strong>
+            Protected page unlock
+          </div>
+          <div>
+            <strong>Secret Link</strong>
+            Private URL access
+          </div>
+        </div>
+      </div>
+
+      <div class="app-hero-visual">
+        <div class="hero-frame">
+          <div class="visual-card">
+            <div class="visual-topbar">
+              <div class="visual-title">Admin Lock Rule Options</div>
+              <div class="visual-pill">No Code Setup</div>
+            </div>
+            <div class="rule-grid">
+              <div class="rule-chip">
+                <strong>Scope</strong>
+                <span>Products, collections, pages and custom URLs</span>
+              </div>
+              <div class="rule-chip">
+                <strong>Access</strong>
+                <span>Login, passcode, secret link and request-based entry</span>
+              </div>
+              <div class="rule-chip">
+                <strong>Audience</strong>
+                <span>Guests, logged-in users, tags, email and market rules</span>
+              </div>
+              <div class="rule-chip">
+                <strong>Action</strong>
+                <span>Hide, redirect or replace with a custom message</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-topbar">
+              <div class="visual-title">Storefront Locked View</div>
+              <div class="visual-pill">Wholesale Gate</div>
+            </div>
+            <div class="lock-preview">
+              <div class="store-blur"></div>
+              <div class="lock-modal">
+                <div class="lock-icon">🔒</div>
+                <h3>This content is locked</h3>
+                <p>Enter passcode to continue or access with your approved login.</p>
+                <div class="passcode-row">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="lock-button">Unlock Access</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
 
 {% schema %}
 {
@@ -309,15 +669,11 @@
       "default": "scheme-1"
     },
     {
-      "type": "header",
-      "content": "t:sections.image-banner.settings.mobile.content"
-    },
-    {
       "type": "checkbox",
       "id": "stack_images_on_mobile",
       "default": true,
       "label": "t:sections.image-banner.settings.stack_images_on_mobile.label"
-    },    
+    },
     {
       "type": "select",
       "id": "mobile_content_alignment",
@@ -354,7 +710,7 @@
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
+          "default": "Image banner",
           "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
         },
         {
@@ -393,9 +749,9 @@
       "limit": 1,
       "settings": [
         {
-          "type": "inline_richtext",
+          "type": "richtext",
           "id": "text",
-          "default": "t:sections.image-banner.blocks.text.settings.text.default",
+          "default": "<p>Give customers details about the banner image(s) or content on the template.</p>",
           "label": "t:sections.image-banner.blocks.text.settings.text.label"
         },
         {
@@ -426,13 +782,9 @@
       "limit": 1,
       "settings": [
         {
-        "type": "header",
-        "content": "t:sections.image-banner.blocks.buttons.settings.header_1.content"
-        },
-        {
           "type": "text",
           "id": "button_label_1",
-          "default": "t:sections.image-banner.blocks.buttons.settings.button_label_1.default",
+          "default": "Button label",
           "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
           "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
         },
@@ -448,13 +800,9 @@
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
         },
         {
-        "type": "header",
-        "content": "t:sections.image-banner.blocks.buttons.settings.header_2.content"
-        },
-        {
           "type": "text",
           "id": "button_label_2",
-          "default": "t:sections.image-banner.blocks.buttons.settings.button_label_2.default",
+          "default": "Button label",
           "label": "t:sections.image-banner.blocks.buttons.settings.button_label_2.label",
           "info": "t:sections.image-banner.blocks.buttons.settings.button_label_2.info"
         },
