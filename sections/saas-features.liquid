@@ -1,31 +1,20 @@
 {%- style -%}
   .saas-features {
-    padding: 110px 0 !important;
+    padding: 88px 0 !important;
     background: #ffffff !important;
   }
   .saas-features-shell {
-    background: linear-gradient(90deg, #111827 0 34%, #f8fbff 34% 100%);
-    border-radius: 34px;
-    overflow: hidden;
-    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
-    border: 1px solid #dbeafe;
-  }
-  .saas-features-grid {
     display: grid;
-    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
-    align-items: stretch;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 28px;
+    align-items: start;
   }
-  .saas-features-copy {
-    padding: 72px 54px;
+  .saas-features-intro {
+    background: linear-gradient(135deg, #0f172a, #162033);
     color: #ffffff;
-  }
-  .saas-features-copy-inner {
-    max-width: 620px;
-    padding: 30px 32px;
     border-radius: 30px;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.82));
-    border: 1px solid rgba(96, 165, 250, 0.14);
-    box-shadow: 0 24px 60px rgba(2, 6, 23, 0.22);
+    padding: 42px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
   }
   .saas-features-label {
     display: inline-flex;
@@ -33,14 +22,14 @@
     gap: 10px;
     padding: 10px 16px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.05);
-    color: #dbeafe;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #bfdbfe;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
   .saas-features-label::before {
     content: '';
@@ -50,60 +39,59 @@
     background: #60a5fa;
   }
   .saas-features-title {
-    margin: 0 0 20px;
-    font-size: clamp(2.4rem, 4vw, 4rem);
-    line-height: 1.04;
+    margin: 0 0 18px;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 1.06;
     letter-spacing: -0.04em;
     color: #ffffff;
   }
   .saas-features-text {
-    margin: 0 0 28px;
+    margin: 0 0 22px;
     font-size: 18px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.78);
-    max-width: 470px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 560px;
   }
   .saas-features-points {
     margin: 0;
     padding: 0;
     list-style: none;
     display: grid;
-    gap: 14px;
+    gap: 12px;
   }
   .saas-features-points li {
     display: flex;
     gap: 12px;
     color: #e5eefc;
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.6;
   }
   .saas-features-points li::before {
     content: '✓';
-    width: 24px;
-    height: 24px;
-    border-radius: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
     background: #2563eb;
     color: #ffffff;
-    font-weight: 700;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
+    font-size: 13px;
+    font-weight: 800;
     margin-top: 1px;
   }
-  .saas-features-cards {
-    padding: 42px;
+  .saas-features-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
-    align-content: center;
   }
   .saas-feature-card {
     background: #ffffff;
     border: 1px solid #dbeafe;
-    border-radius: 24px;
+    border-radius: 26px;
     padding: 28px;
-    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
     min-height: 220px;
   }
   .saas-feature-icon {
@@ -119,43 +107,36 @@
   }
   .saas-feature-title {
     margin: 0 0 10px;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 800;
-    line-height: 1.2;
     color: #0f172a;
+    line-height: 1.25;
   }
   .saas-feature-text {
     margin: 0;
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.7;
     color: #475569;
   }
   @media screen and (max-width: 989px) {
-    .saas-features-grid {
-      grid-template-columns: 1fr;
-    }
     .saas-features-shell {
-      background: linear-gradient(180deg, #111827 0 42%, #f8fbff 42% 100%);
+      grid-template-columns: 1fr;
     }
   }
   @media screen and (max-width: 749px) {
     .saas-features {
-      padding: 76px 0 !important;
+      padding: 72px 0 !important;
     }
-    .saas-features-copy {
-      padding: 38px 24px 34px;
-    }
-    .saas-features-copy-inner {
-      max-width: none;
-      padding: 24px 20px;
+    .saas-features-intro {
+      padding: 26px;
       border-radius: 24px;
     }
-    .saas-features-cards {
-      padding: 24px;
+    .saas-features-grid {
       grid-template-columns: 1fr;
     }
     .saas-feature-card {
       min-height: auto;
+      padding: 22px;
     }
   }
 {%- endstyle -%}
@@ -163,53 +144,49 @@
 <section class="saas-features">
   <div class="page-width">
     <div class="saas-features-shell">
+      <div class="saas-features-intro">
+        <div class="saas-features-label">Feature Overview</div>
+        <h2 class="saas-features-title">Everything needed for B2B visibility control</h2>
+        <p class="saas-features-text">Manage pricing visibility, storefront access and private catalog experiences from one app interface built for wholesale and trade-only stores.</p>
+        <ul class="saas-features-points">
+          <li>Hide prices and Add to Cart without editing theme code.</li>
+          <li>Restrict content using login, passcode or secret link access.</li>
+          <li>Apply rules to products, collections, pages and custom URLs.</li>
+          <li>Use custom messages to guide visitors toward approval or login.</li>
+        </ul>
+      </div>
+
       <div class="saas-features-grid">
-        <div class="saas-features-copy">
-          <div class="saas-features-copy-inner">
-            <div class="saas-features-label">Feature Overview</div>
-            <h2 class="saas-features-title">Everything needed for B2B visibility control</h2>
-            <p class="saas-features-text">Manage pricing visibility, storefront access and private catalog experiences from a single app interface built for wholesale and trade-only stores.</p>
-            <ul class="saas-features-points">
-              <li>Hide prices and Add to Cart without editing theme code.</li>
-              <li>Restrict content using login, passcode or secret link access.</li>
-              <li>Apply rules to products, collections, pages and custom URLs.</li>
-              <li>Use custom messages to guide visitors toward approval or login.</li>
-            </ul>
+        <div class="saas-feature-card">
+          <div class="saas-feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
           </div>
+          <h3 class="saas-feature-title">Hide price and Add to Cart</h3>
+          <p class="saas-feature-text">Prevent guests or unapproved buyers from seeing trade pricing and purchasing actions until they meet your rule conditions.</p>
         </div>
 
-        <div class="saas-features-cards">
-          <div class="saas-feature-card">
-            <div class="saas-feature-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-            </div>
-            <h3 class="saas-feature-title">Hide price and Add to Cart</h3>
-            <p class="saas-feature-text">Prevent guests or unapproved buyers from seeing trade pricing and purchasing actions until they meet your rule conditions.</p>
+        <div class="saas-feature-card">
+          <div class="saas-feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
           </div>
+          <h3 class="saas-feature-title">Rule-based audience targeting</h3>
+          <p class="saas-feature-text">Create advanced visibility rules for guest users, logged-in customers, tags, markets and selected buyer groups.</p>
+        </div>
 
-          <div class="saas-feature-card">
-            <div class="saas-feature-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
-            <h3 class="saas-feature-title">Rule-based audience targeting</h3>
-            <p class="saas-feature-text">Create advanced visibility rules for guest users, logged-in customers, tags, markets and selected buyer groups.</p>
+        <div class="saas-feature-card">
+          <div class="saas-feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
           </div>
+          <h3 class="saas-feature-title">Custom price replacement text</h3>
+          <p class="saas-feature-text">Show messages like “Login to view price”, “Wholesale access only” or “Request a quote” in place of hidden pricing.</p>
+        </div>
 
-          <div class="saas-feature-card">
-            <div class="saas-feature-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            </div>
-            <h3 class="saas-feature-title">Custom price replacement text</h3>
-            <p class="saas-feature-text">Show messages like “Login to view price”, “Wholesale access only” or “Request a quote” in place of hidden pricing.</p>
+        <div class="saas-feature-card">
+          <div class="saas-feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
-
-          <div class="saas-feature-card">
-            <div class="saas-feature-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            </div>
-            <h3 class="saas-feature-title">Multiple unlock methods</h3>
-            <p class="saas-feature-text">Let approved buyers access protected content with customer login, passcodes, secret links and request-based manual approval.</p>
-          </div>
+          <h3 class="saas-feature-title">Multiple unlock methods</h3>
+          <p class="saas-feature-text">Let approved buyers access protected content with customer login, passcodes, secret links and request-based approval.</p>
         </div>
       </div>
     </div>

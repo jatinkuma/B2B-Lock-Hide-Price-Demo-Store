@@ -1,27 +1,20 @@
 {%- style -%}
   .saas-benefits {
-    padding: 110px 0 !important;
+    padding: 88px 0 !important;
     background: #ffffff !important;
   }
   .saas-benefits-wrap {
-    border-radius: 34px;
-    overflow: hidden;
-    border: 1px solid #dbeafe;
-    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
-    background: linear-gradient(90deg, #f8fbff 0 58%, #111827 58% 100%);
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 28px;
+    align-items: start;
   }
   .saas-benefits-copy {
-    padding: 58px 54px;
-  }
-  .saas-benefits-copy-inner {
-    max-width: 620px;
-    padding: 30px 32px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.92);
+    background: #ffffff;
     border: 1px solid #dbeafe;
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 54px rgba(15, 23, 42, 0.06);
   }
   .saas-benefits-label {
     display: inline-block;
@@ -34,18 +27,16 @@
   }
   .saas-benefits-title {
     margin: 0 0 18px;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    line-height: 1.06;
+    font-size: clamp(2.1rem, 4vw, 3.4rem);
+    line-height: 1.08;
     letter-spacing: -0.04em;
     color: #0f172a;
-    max-width: 520px;
   }
   .saas-benefits-text {
-    margin: 0 0 24px;
-    max-width: 520px;
+    margin: 0 0 22px;
     color: #475569;
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
   .saas-benefits-list {
     margin: 0;
@@ -59,7 +50,7 @@
     gap: 12px;
     color: #0f172a;
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.6;
     font-weight: 600;
   }
   .saas-benefits-list li::before {
@@ -72,29 +63,22 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
     flex: 0 0 auto;
+    font-size: 13px;
+    font-weight: 800;
     margin-top: 1px;
   }
   .saas-benefits-panel {
-    padding: 40px;
-    display: flex;
-    align-items: center;
-  }
-  .benefits-board {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 28px;
-    padding: 22px;
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, #0f172a, #162033);
+    border-radius: 30px;
+    padding: 24px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
   }
   .benefit-card {
     background: #ffffff;
     border-radius: 22px;
     padding: 22px;
-    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
   }
   .benefit-card + .benefit-card {
     margin-top: 16px;
@@ -109,29 +93,21 @@
     display: block;
     color: #475569;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
   @media screen and (max-width: 989px) {
     .saas-benefits-wrap {
       grid-template-columns: 1fr;
-      background: linear-gradient(180deg, #f8fbff 0 58%, #111827 58% 100%);
     }
   }
   @media screen and (max-width: 749px) {
     .saas-benefits {
-      padding: 76px 0 !important;
+      padding: 72px 0 !important;
     }
     .saas-benefits-copy,
     .saas-benefits-panel {
       padding: 24px;
-    }
-    .saas-benefits-copy-inner {
-      max-width: none;
-      padding: 24px 20px;
       border-radius: 24px;
-    }
-    .saas-benefits-title {
-      font-size: 38px;
     }
   }
 {%- endstyle -%}
@@ -140,32 +116,28 @@
   <div class="page-width">
     <div class="saas-benefits-wrap">
       <div class="saas-benefits-copy">
-        <div class="saas-benefits-copy-inner">
-          <div class="saas-benefits-label">Why Merchants Use It</div>
-          <h2 class="saas-benefits-title">Built for wholesale stores that need tighter storefront control</h2>
-          <p class="saas-benefits-text">ESTS B2B Lock & Hide Price helps merchants run cleaner B2B and private-catalog experiences without exposing the wrong prices to the wrong audience.</p>
-          <ul class="saas-benefits-list">
-            <li>No-code setup for hidden pricing and protected storefront content.</li>
-            <li>Flexible targeting using guest, login, tag and buyer-access conditions.</li>
-            <li>Supports passcode, secret-link and request-based approval workflows.</li>
-          </ul>
-        </div>
+        <div class="saas-benefits-label">Why Merchants Use It</div>
+        <h2 class="saas-benefits-title">Built for wholesale stores that need tighter storefront control</h2>
+        <p class="saas-benefits-text">ESTS B2B Lock & Hide Price helps merchants run cleaner B2B and private-catalog experiences without exposing the wrong prices to the wrong audience.</p>
+        <ul class="saas-benefits-list">
+          <li>No-code setup for hidden pricing and protected storefront content.</li>
+          <li>Flexible targeting using guest, login, tag and buyer-access conditions.</li>
+          <li>Supports passcode, secret-link and request-based approval workflows.</li>
+        </ul>
       </div>
 
       <div class="saas-benefits-panel">
-        <div class="benefits-board">
-          <div class="benefit-card">
-            <strong>No-code setup</strong>
-            <span>Create lock rules, choose your audience and launch protected views without custom development work.</span>
-          </div>
-          <div class="benefit-card">
-            <strong>Precise customer targeting</strong>
-            <span>Show prices, products and pages only when the customer state or tag matches your B2B access logic.</span>
-          </div>
-          <div class="benefit-card">
-            <strong>Private sales workflows</strong>
-            <span>Use secret links, passcodes and request forms to support wholesaler onboarding and gated catalogs.</span>
-          </div>
+        <div class="benefit-card">
+          <strong>No-code setup</strong>
+          <span>Create lock rules, choose your audience and launch protected views without custom development work.</span>
+        </div>
+        <div class="benefit-card">
+          <strong>Precise customer targeting</strong>
+          <span>Show prices, products and pages only when the customer state or tag matches your B2B access logic.</span>
+        </div>
+        <div class="benefit-card">
+          <strong>Private sales workflows</strong>
+          <span>Use secret links, passcodes and request forms to support wholesaler onboarding and gated catalogs.</span>
         </div>
       </div>
     </div>
