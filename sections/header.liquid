@@ -19,34 +19,34 @@
 {%- style -%}
   .header-wrapper {
     position: fixed !important;
-    top: 24px !important;
+    top: 18px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: auto !important;
-    min-width: 720px;
+    min-width: 700px;
     max-width: 95vw;
-    background: var(--glass-bg) !important;
+    background: rgba(255, 255, 255, 0.88) !important;
     backdrop-filter: var(--glass-blur) !important;
-    border: 1px solid var(--glass-border) !important;
+    border: 1px solid rgba(219, 234, 254, 0.95) !important;
     border-radius: var(--radius-pill) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08) !important;
     z-index: 2000 !important;
-    padding: 6px 12px !important;
+    padding: 8px 12px !important;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .header-wrapper.header--scrolled {
-    top: 12px !important;
+    top: 10px !important;
     padding: 4px 10px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1) !important;
   }
 
   .header {
-    padding: 0 8px !important;
+    padding: 0 10px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 40px !important;
+    gap: 28px !important;
     margin: 0 !important;
     max-width: 100% !important;
   }
@@ -55,7 +55,7 @@
     flex-shrink: 0 !important;
     display: flex !important;
     align-items: center !important;
-    padding-left: 12px !important;
+    padding-left: 6px !important;
   }
 
   .header__inline-menu {
@@ -70,49 +70,49 @@
     padding: 0 !important;
     margin: 0 !important;
     display: flex !important;
-    gap: 4px !important;
+    gap: 6px !important;
     align-items: center !important;
     flex-wrap: nowrap !important;
   }
 
   .header__menu-item {
-    color: var(--text-secondary) !important;
+    color: #475569 !important;
     font-size: 14px !important;
-    font-weight: 500 !important;
-    padding: 10px 16px !important;
+    font-weight: 600 !important;
+    padding: 10px 14px !important;
     text-decoration: none !important;
-    border-radius: var(--radius-pill) !important;
+    border-radius: 999px !important;
     transition: all 0.2s ease !important;
     display: block !important;
     white-space: nowrap !important;
   }
 
   .header__menu-item:hover {
-    color: var(--text-primary) !important;
-    background: rgba(0, 0, 0, 0.03) !important;
+    color: #0f172a !important;
+    background: #eff6ff !important;
   }
 
   .header__actions {
-    padding-right: 6px !important;
+    padding-right: 2px !important;
   }
 
   .header__install-btn {
     background: var(--gradient-brand) !important;
     color: #ffffff !important;
-    padding: 12px 28px !important;
+    padding: 12px 24px !important;
     border-radius: var(--radius-pill) !important;
     font-size: 14px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     display: inline-block !important;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2) !important;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.24) !important;
     white-space: nowrap !important;
   }
 
   .header__install-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3) !important;
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.3) !important;
     filter: brightness(1.05);
   }
 
@@ -156,11 +156,13 @@
     <nav class="header__inline-menu">
       <ul class="header__menu-list" role="list">
         {%- for link in linklists[section.settings.menu].links -%}
-          <li>
-            <a href="{{ link.url }}" class="header__menu-item">
-              {{ link.title | escape }}
-            </a>
-          </li>
+          {%- unless link.title == 'Contact' or link.title == 'contact' or link.url contains '/pages/contact' -%}
+            <li>
+              <a href="{{ link.url }}" class="header__menu-item">
+                {{ link.title | escape }}
+              </a>
+            </li>
+          {%- endunless -%}
         {%- endfor -%}
       </ul>
     </nav>
