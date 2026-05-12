@@ -19,6 +19,14 @@
     padding: 72px 54px;
     color: #ffffff;
   }
+  .saas-features-copy-inner {
+    max-width: 620px;
+    padding: 30px 32px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.82));
+    border: 1px solid rgba(96, 165, 250, 0.14);
+    box-shadow: 0 24px 60px rgba(2, 6, 23, 0.22);
+  }
   .saas-features-label {
     display: inline-flex;
     align-items: center;
@@ -137,6 +145,11 @@
     .saas-features-copy {
       padding: 38px 24px 34px;
     }
+    .saas-features-copy-inner {
+      max-width: none;
+      padding: 24px 20px;
+      border-radius: 24px;
+    }
     .saas-features-cards {
       padding: 24px;
       grid-template-columns: 1fr;
@@ -152,15 +165,17 @@
     <div class="saas-features-shell">
       <div class="saas-features-grid">
         <div class="saas-features-copy">
-          <div class="saas-features-label">Feature Overview</div>
-          <h2 class="saas-features-title">Everything needed for B2B visibility control</h2>
-          <p class="saas-features-text">Manage pricing visibility, storefront access and private catalog experiences from a single app interface built for wholesale and trade-only stores.</p>
-          <ul class="saas-features-points">
-            <li>Hide prices and Add to Cart without editing theme code.</li>
-            <li>Restrict content using login, passcode or secret link access.</li>
-            <li>Apply rules to products, collections, pages and custom URLs.</li>
-            <li>Use custom messages to guide visitors toward approval or login.</li>
-          </ul>
+          <div class="saas-features-copy-inner">
+            <div class="saas-features-label">Feature Overview</div>
+            <h2 class="saas-features-title">Everything needed for B2B visibility control</h2>
+            <p class="saas-features-text">Manage pricing visibility, storefront access and private catalog experiences from a single app interface built for wholesale and trade-only stores.</p>
+            <ul class="saas-features-points">
+              <li>Hide prices and Add to Cart without editing theme code.</li>
+              <li>Restrict content using login, passcode or secret link access.</li>
+              <li>Apply rules to products, collections, pages and custom URLs.</li>
+              <li>Use custom messages to guide visitors toward approval or login.</li>
+            </ul>
+          </div>
         </div>
 
         <div class="saas-features-cards">

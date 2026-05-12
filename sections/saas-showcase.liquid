@@ -155,8 +155,25 @@
   .saas-usecase-copy {
     padding: 58px 54px;
   }
+  .saas-usecase-copy-inner {
+    max-width: 620px;
+  }
   .saas-usecase:nth-child(even) .saas-usecase-copy {
     color: #ffffff;
+  }
+  .saas-usecase:nth-child(even) .saas-usecase-copy-inner {
+    padding: 30px 32px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.82));
+    border: 1px solid rgba(96, 165, 250, 0.14);
+    box-shadow: 0 24px 60px rgba(2, 6, 23, 0.22);
+  }
+  .saas-usecase:not(:nth-child(even)) .saas-usecase-copy-inner {
+    padding: 30px 32px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #dbeafe;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
   }
   .saas-usecase-label {
     display: inline-block;
@@ -232,6 +249,16 @@
       color: #ffffff;
       order: -1;
     }
+    .saas-usecase-copy-inner,
+    .saas-usecase:nth-child(even) .saas-usecase-copy-inner,
+    .saas-usecase:not(:nth-child(even)) .saas-usecase-copy-inner {
+      max-width: none;
+      padding: 24px 20px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.82));
+      border: 1px solid rgba(96, 165, 250, 0.14);
+      box-shadow: 0 24px 60px rgba(2, 6, 23, 0.22);
+    }
     .saas-usecase-label,
     .saas-usecase:nth-child(even) .saas-usecase-label {
       color: #93c5fd;
@@ -284,27 +311,31 @@
           </div>
         </div>
         <div class="saas-usecase-copy">
-          <div class="saas-usecase-label">Use Case 01</div>
-          <h2 class="saas-usecase-title">Control access to prices, pages and products</h2>
-          <p class="saas-usecase-text">Build targeted lock rules for trade pricing, B2B product visibility and private content access from one place.</p>
-          <ul class="saas-usecase-list">
-            <li>Hide prices and Add to Cart for guest visitors.</li>
-            <li>Lock collections, CMS pages and direct product URLs.</li>
-            <li>Use AND/OR style rule logic through customer targeting.</li>
-          </ul>
+          <div class="saas-usecase-copy-inner">
+            <div class="saas-usecase-label">Use Case 01</div>
+            <h2 class="saas-usecase-title">Control access to prices, pages and products</h2>
+            <p class="saas-usecase-text">Build targeted lock rules for trade pricing, B2B product visibility and private content access from one place.</p>
+            <ul class="saas-usecase-list">
+              <li>Hide prices and Add to Cart for guest visitors.</li>
+              <li>Lock collections, CMS pages and direct product URLs.</li>
+              <li>Use AND/OR style rule logic through customer targeting.</li>
+            </ul>
+          </div>
         </div>
       </article>
 
       <article class="saas-usecase">
         <div class="saas-usecase-copy">
-          <div class="saas-usecase-label">Use Case 02</div>
-          <h2 class="saas-usecase-title">Passcode and private page access</h2>
-          <p class="saas-usecase-text">Protect specific pages, campaign links and exclusive collections with clean storefront gates that still feel branded.</p>
-          <ul class="saas-usecase-list">
-            <li>Require passcode entry before private content is shown.</li>
-            <li>Redirect unauthorized visitors or show an access message.</li>
-            <li>Keep wholesale resources hidden from regular shoppers.</li>
-          </ul>
+          <div class="saas-usecase-copy-inner">
+            <div class="saas-usecase-label">Use Case 02</div>
+            <h2 class="saas-usecase-title">Passcode and private page access</h2>
+            <p class="saas-usecase-text">Protect specific pages, campaign links and exclusive collections with clean storefront gates that still feel branded.</p>
+            <ul class="saas-usecase-list">
+              <li>Require passcode entry before private content is shown.</li>
+              <li>Redirect unauthorized visitors or show an access message.</li>
+              <li>Keep wholesale resources hidden from regular shoppers.</li>
+            </ul>
+          </div>
         </div>
         <div class="saas-usecase-media">
           <div class="saas-usecase-demo">
@@ -345,14 +376,16 @@
           </div>
         </div>
         <div class="saas-usecase-copy">
-          <div class="saas-usecase-label">Use Case 03</div>
-          <h2 class="saas-usecase-title">Share secret links or collect wholesale requests</h2>
-          <p class="saas-usecase-text">Give access through token-based links or collect visitor requests when manual approval is part of your B2B process.</p>
-          <ul class="saas-usecase-list">
-            <li>Send private URLs to approved distributors and reps.</li>
-            <li>Collect name, email and message for wholesale access review.</li>
-            <li>Guide buyers into a cleaner quote-first sales workflow.</li>
-          </ul>
+          <div class="saas-usecase-copy-inner">
+            <div class="saas-usecase-label">Use Case 03</div>
+            <h2 class="saas-usecase-title">Share secret links or collect wholesale requests</h2>
+            <p class="saas-usecase-text">Give access through token-based links or collect visitor requests when manual approval is part of your B2B process.</p>
+            <ul class="saas-usecase-list">
+              <li>Send private URLs to approved distributors and reps.</li>
+              <li>Collect name, email and message for wholesale access review.</li>
+              <li>Guide buyers into a cleaner quote-first sales workflow.</li>
+            </ul>
+          </div>
         </div>
       </article>
     </div>
