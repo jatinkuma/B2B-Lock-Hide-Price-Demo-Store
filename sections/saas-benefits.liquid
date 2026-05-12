@@ -1,97 +1,156 @@
 {%- style -%}
   .saas-benefits {
-    padding: var(--space-12) 0 !important;
+    padding: 110px 0 !important;
     background: #ffffff !important;
   }
-  .saas-benefits-container {
-    border: 1px solid #f1f5f9 !important;
-    border-radius: 40px !important;
-    padding: 80px !important;
-    background: #ffffff !important;
-    text-align: center !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02) !important;
+  .saas-benefits-wrap {
+    border-radius: 34px;
+    overflow: hidden;
+    border: 1px solid #dbeafe;
+    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
+    background: linear-gradient(90deg, #f8fbff 0 58%, #111827 58% 100%);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
   }
-  .saas-benefits .title {
-    font-size: 36px !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.03em !important;
-    margin-bottom: 64px !important;
-    color: var(--text-primary) !important;
+  .saas-benefits-copy {
+    padding: 58px 54px;
   }
-  .saas-benefits-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 48px !important;
+  .saas-benefits-label {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #1d4ed8;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
-  .saas-benefit-item {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  .saas-benefits-title {
+    margin: 0 0 18px;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+    color: #0f172a;
+    max-width: 520px;
   }
-  .saas-benefit-icon {
-    width: 48px !important;
-    height: 48px !important;
-    background: #f5f3ff !important;
-    border-radius: 12px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-bottom: 24px !important;
-    color: #6366f1 !important;
+  .saas-benefits-text {
+    margin: 0 0 24px;
+    max-width: 520px;
+    color: #475569;
+    font-size: 18px;
+    line-height: 1.7;
   }
-  .saas-benefit-title {
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    color: var(--text-primary) !important;
-    margin-bottom: 12px !important;
+  .saas-benefits-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
   }
-  .saas-benefit-text {
-    font-size: 15px !important;
-    color: var(--text-secondary) !important;
-    line-height: 1.6 !important;
-    margin: 0 !important;
+  .saas-benefits-list li {
+    display: flex;
+    gap: 12px;
+    color: #0f172a;
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 600;
+  }
+  .saas-benefits-list li::before {
+    content: '✓';
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex: 0 0 auto;
+    margin-top: 1px;
+  }
+  .saas-benefits-panel {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .benefits-board {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 22px;
+    backdrop-filter: blur(10px);
+  }
+  .benefit-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+  }
+  .benefit-card + .benefit-card {
+    margin-top: 16px;
+  }
+  .benefit-card strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #0f172a;
+    font-size: 18px;
+  }
+  .benefit-card span {
+    display: block;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.6;
   }
   @media screen and (max-width: 989px) {
-    .saas-benefits-container {
-      padding: 40px !important;
+    .saas-benefits-wrap {
+      grid-template-columns: 1fr;
+      background: linear-gradient(180deg, #f8fbff 0 58%, #111827 58% 100%);
     }
-    .saas-benefits-grid {
-      grid-template-columns: 1fr !important;
-      gap: 40px !important;
+  }
+  @media screen and (max-width: 749px) {
+    .saas-benefits {
+      padding: 76px 0 !important;
+    }
+    .saas-benefits-copy,
+    .saas-benefits-panel {
+      padding: 24px;
+    }
+    .saas-benefits-title {
+      font-size: 38px;
     }
   }
 {%- endstyle -%}
 
 <section class="saas-benefits">
   <div class="page-width">
-    <div class="saas-benefits-container">
-      <h2 class="title">Why B2B merchants use ESTS B2B Lock & Hide Price</h2>
+    <div class="saas-benefits-wrap">
+      <div class="saas-benefits-copy">
+        <div class="saas-benefits-label">Why Merchants Use It</div>
+        <h2 class="saas-benefits-title">Built for wholesale stores that need tighter storefront control</h2>
+        <p class="saas-benefits-text">ESTS B2B Lock & Hide Price helps merchants run cleaner B2B and private-catalog experiences without exposing the wrong prices to the wrong audience.</p>
+        <ul class="saas-benefits-list">
+          <li>No-code setup for hidden pricing and protected storefront content.</li>
+          <li>Flexible targeting using guest, login, tag and buyer-access conditions.</li>
+          <li>Supports passcode, secret-link and request-based approval workflows.</li>
+        </ul>
+      </div>
 
-      <div class="saas-benefits-grid">
-        <div class="saas-benefit-item">
-          <div class="saas-benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <div class="saas-benefits-panel">
+        <div class="benefits-board">
+          <div class="benefit-card">
+            <strong>No-code setup</strong>
+            <span>Create lock rules, choose your audience and launch protected views without custom development work.</span>
           </div>
-          <h3 class="saas-benefit-title">No-code setup</h3>
-          <p class="saas-benefit-text">Create lock rules, choose your audience and publish protected storefront experiences without custom development.</p>
-        </div>
-
-        <div class="saas-benefit-item">
-          <div class="saas-benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          <div class="benefit-card">
+            <strong>Precise customer targeting</strong>
+            <span>Show prices, products and pages only when the customer state or tag matches your B2B access logic.</span>
           </div>
-          <h3 class="saas-benefit-title">Precise customer targeting</h3>
-          <p class="saas-benefit-text">Combine guest, login and tag-based conditions to show the right pricing and content to the right buyers.</p>
-        </div>
-
-        <div class="saas-benefit-item">
-          <div class="saas-benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          <div class="benefit-card">
+            <strong>Private sales workflows</strong>
+            <span>Use secret links, passcodes and request forms to support wholesaler onboarding and gated catalogs.</span>
           </div>
-          <h3 class="saas-benefit-title">Supports private sales flows</h3>
-          <p class="saas-benefit-text">Use secret links, passcodes and request-access messaging for wholesale programs, exclusive launches and hidden catalogs.</p>
         </div>
       </div>
     </div>

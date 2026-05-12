@@ -1,73 +1,88 @@
 {%- style -%}
   .saas-cta {
-    padding: var(--space-12) 0 !important;
+    padding: 110px 0 !important;
     background: #ffffff !important;
   }
   .saas-cta-container {
-    background: var(--gradient-vibrant) !important;
-    border-radius: 40px !important;
-    padding: 100px 40px !important;
-    margin: 0 40px !important;
-    text-align: center !important;
-    position: relative;
+    border-radius: 34px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2) !important;
+    background: linear-gradient(135deg, #0f172a, #1d4ed8 60%, #3b82f6);
+    padding: 68px 56px;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(37, 99, 235, 0.22);
   }
   .saas-cta-container::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 60%);
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.14), transparent 26%),
+      radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.1), transparent 22%);
     pointer-events: none;
   }
-  .saas-cta-heading {
-    color: #ffffff !important;
-    font-size: 56px !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.04em !important;
-    margin-bottom: 24px !important;
-    line-height: 1.1 !important;
+  .saas-cta-grid {
     position: relative;
-    z-index: 2;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 26px;
+    align-items: end;
+  }
+  .saas-cta-label {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #bfdbfe;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .saas-cta-heading {
+    margin: 0 0 16px;
+    color: #ffffff !important;
+    font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.05em !important;
+    max-width: 760px;
   }
   .saas-cta-text {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 20px !important;
-    max-width: 600px !important;
-    margin: 0 auto 48px !important;
-    line-height: 1.6 !important;
-    position: relative;
-    z-index: 2;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.84) !important;
+    font-size: 19px !important;
+    line-height: 1.7 !important;
+    max-width: 660px;
   }
   .button--cta {
+    align-self: center;
+    min-height: 58px;
+    padding: 18px 30px !important;
+    border-radius: 16px !important;
     background: #ffffff !important;
-    color: #6366f1 !important;
-    border-radius: var(--radius-pill) !important;
-    padding: 20px 48px !important;
-    font-weight: 700 !important;
-    font-size: 18px !important;
+    color: #1d4ed8 !important;
+    font-size: 17px !important;
+    font-weight: 800 !important;
     text-decoration: none !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 12px !important;
-    transition: var(--transition-spring) !important;
-    position: relative;
-    z-index: 2;
+    gap: 10px !important;
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.14);
   }
   .button--cta:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+  }
+  @media screen and (max-width: 989px) {
+    .saas-cta-grid {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
   }
   @media screen and (max-width: 749px) {
-    .saas-cta-container {
-      margin: 0 20px !important;
-      padding: 60px 24px !important;
+    .saas-cta {
+      padding: 76px 0 !important;
     }
-    .saas-cta-heading {
-      font-size: 36px !important;
+    .saas-cta-container {
+      padding: 34px 24px;
+      border-radius: 26px;
     }
   }
 {%- endstyle -%}
@@ -75,11 +90,16 @@
 <section class="saas-cta">
   <div class="page-width">
     <div class="saas-cta-container">
-      <h2 class="saas-cta-heading">Control who sees your prices and pages</h2>
-      <p class="saas-cta-text">Build a cleaner wholesale buying journey with protected pricing, gated content and flexible B2B access rules.</p>
-      <a href="https://apps.shopify.com/login-to-see-price" class="button--cta">
-        View App Listing <span>&rarr;</span>
-      </a>
+      <div class="saas-cta-grid">
+        <div>
+          <div class="saas-cta-label">Shopify App Store</div>
+          <h2 class="saas-cta-heading">Control pricing visibility before the wrong buyers see it</h2>
+          <p class="saas-cta-text">Use ESTS B2B Lock & Hide Price to protect wholesale pricing, private pages and B2B product access with a cleaner storefront experience.</p>
+        </div>
+        <a href="https://apps.shopify.com/login-to-see-price" class="button--cta">
+          Install App <span>&rarr;</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -89,31 +109,6 @@
   "name": "SaaS CTA Section",
   "tag": "section",
   "class": "section",
-  "settings": [
-    {
-      "type": "inline_richtext",
-      "id": "title",
-      "default": "Ready to Transform Your Store?",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "text",
-      "default": "Join 2,000+ Shopify Plus merchants scaling their business with our premium solution.",
-      "label": "Description"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "default": "Start Free Trial",
-      "label": "Button Label"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    }
-  ],
   "presets": [
     {
       "name": "SaaS CTA Section"
