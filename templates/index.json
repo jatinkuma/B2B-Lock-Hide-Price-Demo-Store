@@ -15,25 +15,25 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Scale Your Store with Premium Solutions",
+            "heading": "Lock Prices, Products and Pages for B2B Buyers",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "The ultimate Shopify app for merchants who demand high conversion, modern design, and seamless performance.",
+            "text": "ESTS B2B Lock & Hide Price helps wholesalers, private stores and trade-only catalogs control who can view pricing, shop products and access protected content.",
             "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Get Started",
+            "button_label_1": "View Protected Catalog",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
-            "button_label_2": "View Demo",
-            "button_link_2": "shopify://collections/all",
+            "button_label_2": "Open App Listing",
+            "button_link_2": "https://apps.shopify.com/login-to-see-price",
             "button_style_secondary_2": true
           }
         }
@@ -63,24 +63,24 @@
           "type": "feature",
           "settings": {
             "icon_svg": "",
-            "title": "One-Click Installation",
-            "text": "Get up and running in minutes with our zero-config setup process designed for busy merchants."
+            "title": "Hide Prices and Add to Cart",
+            "text": "Hide prices, purchase buttons and buying actions for guests or unauthorized visitors without editing theme code."
           }
         },
         "f2": {
           "type": "feature",
           "settings": {
             "icon_svg": "",
-            "title": "Enterprise Security",
-            "text": "Your data is protected with SOC2 compliant infrastructure and end-to-end encryption."
+            "title": "Lock Pages, Products and URLs",
+            "text": "Protect collections, products, CMS pages and custom URLs with login, passcode or secret link access."
           }
         },
         "f3": {
           "type": "feature",
           "settings": {
             "icon_svg": "",
-            "title": "24/7 Priority Support",
-            "text": "Our team of Shopify experts is always available to help you maximize your store's potential."
+            "title": "Target the Right Buyers",
+            "text": "Build rules for guests, logged-in customers, tags, email-based access and B2B-style buyer segments."
           }
         }
       },
@@ -90,7 +90,7 @@
         "f3"
       ],
       "settings": {
-        "title": "Engineered for Growth",
+        "title": "Flexible B2B Access Control",
         "heading_size": "h1",
         "description": ""
       }
@@ -100,9 +100,9 @@
       "settings": {
         "collection": "beauty-products",
         "products_to_show": 12,
-        "title": "Core Modules",
+        "title": "Protected Product Catalog",
         "heading_size": "h1",
-        "description": "",
+        "description": "Show how pricing and purchasing can be revealed only to approved wholesale customers.",
         "show_description": false,
         "description_style": "body",
         "columns_desktop": 4,
@@ -129,9 +129,9 @@
         "s1": {
           "type": "showcase",
           "settings": {
-            "title": "Deep Integration",
-            "text": "<p>Works seamlessly with your existing tech stack, from Klaviyo to Gorgias and everything in between.</p>",
-            "button_label": "View Integration →",
+            "title": "Built for wholesale and private stores",
+            "text": "<p>Use lock rules to manage trade pricing, gated catalogs, distributor-only pages and request-based access flows from one place.</p>",
+            "button_label": "Explore Features",
             "button_link": ""
           }
         }
@@ -140,17 +140,21 @@
         "s1"
       ],
       "settings": {
-        "title": "The Only Solution You'll Ever Need",
+        "title": "B2B Use Cases That Convert",
         "heading_size": "h1"
       }
+    },
+    "saas_benefits": {
+      "type": "saas-benefits",
+      "settings": {}
     },
     "saas_cta": {
       "type": "saas-cta",
       "settings": {
-        "title": "Start Your 14-Day Free Trial",
-        "text": "Join the world's most successful Shopify stores today. No credit card required.",
-        "button_label": "Start Free Trial",
-        "button_link": ""
+        "title": "Launch a More Controlled B2B Buying Experience",
+        "text": "Hide pricing, restrict pages and approve the right customers before they can browse or buy.",
+        "button_label": "View App on Shopify",
+        "button_link": "https://apps.shopify.com/login-to-see-price"
       }
     }
   },
@@ -159,6 +163,7 @@
     "saas_features",
     "featured_collection",
     "saas_showcase",
+    "saas_benefits",
     "saas_cta"
   ]
 }
