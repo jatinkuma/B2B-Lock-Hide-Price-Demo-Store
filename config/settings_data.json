@@ -142,9 +142,9 @@
     },
     "content_for_index": [],
     "blocks": {
-      "9543444085020179980": {
-        "type": "shopify://apps/ests-product-inquire-pro/blocks/inquiry_embed/019cfaa2-5697-7389-98bc-5a2ab6a24e88",
-        "disabled": true,
+      "13818295190071431816": {
+        "type": "shopify://apps/ests-b2b-lock-hide-price/blocks/app-embed/be007e87-4f8f-4c06-8a5c-07346b246e30",
+        "disabled": false,
         "settings": {}
       }
     },
