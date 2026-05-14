@@ -75,6 +75,10 @@
     flex-wrap: nowrap !important;
   }
 
+  .header__menu-entry {
+    position: relative;
+  }
+
   .header__menu-item {
     color: #475569 !important;
     font-size: 14px !important;
@@ -90,6 +94,76 @@
   .header__menu-item:hover {
     color: #0f172a !important;
     background: #eff6ff !important;
+  }
+
+  .header__menu-item--trigger {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .header__menu-caret {
+    font-size: 11px;
+    line-height: 1;
+    color: #64748b;
+    transition: transform 0.2s ease;
+  }
+
+  .header__menu-entry:hover .header__menu-caret {
+    transform: rotate(180deg);
+  }
+
+  .header__submenu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    min-width: 250px;
+    padding: 10px;
+    margin: 0;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 30;
+  }
+
+  .header__menu-entry:hover .header__submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .header__submenu-link {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .header__submenu-link:hover {
+    background: #eff6ff;
+  }
+
+  .header__submenu-title {
+    display: block;
+    margin-bottom: 4px;
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .header__submenu-text {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.45;
   }
 
   .header__actions {
@@ -125,6 +199,9 @@
       padding: 8px 12px !important;
       font-size: 13px !important;
     }
+    .header__submenu {
+      min-width: 220px;
+    }
     .header {
       gap: 16px !important;
     }
@@ -155,9 +232,57 @@
 
     <nav class="header__inline-menu">
       <ul class="header__menu-list" role="list">
+        <li class="header__menu-entry">
+          <a href="/collections/all" class="header__menu-item header__menu-item--trigger">
+            Price &amp; Add to Cart
+            <span class="header__menu-caret">▼</span>
+          </a>
+          <ul class="header__submenu" role="list">
+            <li>
+              <a href="/collections/all" class="header__submenu-link">
+                <span class="header__submenu-title">Hide Price</span>
+                <span class="header__submenu-text">Replace product pricing with login or custom message.</span>
+              </a>
+            </li>
+            <li>
+              <a href="/collections/all" class="header__submenu-link">
+                <span class="header__submenu-title">Hide Add to Cart</span>
+                <span class="header__submenu-text">Block guest purchases until users are approved.</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="header__menu-entry">
+          <a href="/collections/all" class="header__menu-item header__menu-item--trigger">
+            Product Lock
+            <span class="header__menu-caret">▼</span>
+          </a>
+          <ul class="header__submenu" role="list">
+            <li>
+              <a href="/collections/all" class="header__submenu-link">
+                <span class="header__submenu-title">Enter Password to See Product</span>
+                <span class="header__submenu-text">Unlock selected products with passcode access.</span>
+              </a>
+            </li>
+            <li>
+              <a href="/collections/all" class="header__submenu-link">
+                <span class="header__submenu-title">Secret Link for Product</span>
+                <span class="header__submenu-text">Share private product URLs with approved buyers.</span>
+              </a>
+            </li>
+            <li>
+              <a href="/collections/all" class="header__submenu-link">
+                <span class="header__submenu-title">Login Required for Product</span>
+                <span class="header__submenu-text">Show protected products only to signed-in customers.</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
         {%- for link in linklists[section.settings.menu].links -%}
           {%- unless link.title == 'Contact' or link.title == 'contact' or link.url contains '/pages/contact' -%}
-            <li>
+            <li class="header__menu-entry">
               <a href="{{ link.url }}" class="header__menu-item">
                 {{ link.title | escape }}
               </a>
