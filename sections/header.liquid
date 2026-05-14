@@ -217,12 +217,6 @@
   }
 {%- endstyle -%}
 
-{%- assign hide_price_product = 'Carina Leopard Sling Bag' | handle -%}
-{%- assign hide_cart_product = 'Incredible Velour Mini Skirt - Red' | handle -%}
-{%- assign password_product = 'Iconic Compression Long Sleeve Bodysuit - Black' | handle -%}
-{%- assign secret_link_product = "Lexure UPF 50 Women's Sunshirt" | handle -%}
-{%- assign login_required_product = 'Summer Soutien Wear Matching Skirt Women' | handle -%}
-
 <header-wrapper class="header-wrapper">
   <header class="header">
     <div class="header__logo">
@@ -239,19 +233,19 @@
     <nav class="header__inline-menu">
       <ul class="header__menu-list" role="list">
         <li class="header__menu-entry">
-          <a href="/products/{{ hide_price_product }}" class="header__menu-item header__menu-item--trigger">
+          <a href="/products/carina-leopard-sling-bag-1" class="header__menu-item header__menu-item--trigger">
             Price &amp; Add to Cart
             <span class="header__menu-caret">▼</span>
           </a>
           <ul class="header__submenu" role="list">
             <li>
-              <a href="/products/{{ hide_price_product }}" class="header__submenu-link">
+              <a href="/products/carina-leopard-sling-bag-1" class="header__submenu-link">
                 <span class="header__submenu-title">Hide Price</span>
                 <span class="header__submenu-text">Replace product pricing with login or custom message.</span>
               </a>
             </li>
             <li>
-              <a href="/products/{{ hide_cart_product }}" class="header__submenu-link">
+              <a href="/products/embellished-velour-mini-skirt-red-1" class="header__submenu-link">
                 <span class="header__submenu-title">Hide Add to Cart</span>
                 <span class="header__submenu-text">Block guest purchases until users are approved.</span>
               </a>
@@ -260,25 +254,25 @@
         </li>
 
         <li class="header__menu-entry">
-          <a href="/products/{{ password_product }}" class="header__menu-item header__menu-item--trigger">
+          <a href="/products/iconic-compression-long-sleeve-bodysuit-brief-1" class="header__menu-item header__menu-item--trigger">
             Product Lock
             <span class="header__menu-caret">▼</span>
           </a>
           <ul class="header__submenu" role="list">
             <li>
-              <a href="/products/{{ password_product }}" class="header__submenu-link">
+              <a href="/products/iconic-compression-long-sleeve-bodysuit-brief-1" class="header__submenu-link">
                 <span class="header__submenu-title">Enter Password to See Product</span>
                 <span class="header__submenu-text">Unlock selected products with passcode access.</span>
               </a>
             </li>
             <li>
-              <a href="/products/{{ secret_link_product }}" class="header__submenu-link">
+              <a href="/products/laguna-upf-50-womens-sun-shirt-1" class="header__submenu-link">
                 <span class="header__submenu-title">Secret Link for Product</span>
                 <span class="header__submenu-text">Share private product URLs with approved buyers.</span>
               </a>
             </li>
             <li>
-              <a href="/products/{{ login_required_product }}" class="header__submenu-link">
+              <a href="/products/laguna-upf-50-womens-sun-shirt-1" class="header__submenu-link">
                 <span class="header__submenu-title">Login Required for Product</span>
                 <span class="header__submenu-text">Show protected products only to signed-in customers.</span>
               </a>
@@ -287,7 +281,7 @@
         </li>
 
         {%- for link in linklists[section.settings.menu].links -%}
-          {%- unless link.title == 'Contact' or link.title == 'contact' or link.url contains '/pages/contact' -%}
+          {%- unless link.title == 'Contact' or link.title == 'contact' or link.title == 'Home' or link.title == 'home' or link.url == routes.root_url or link.url contains '/pages/contact' -%}
             <li class="header__menu-entry">
               <a href="{{ link.url }}" class="header__menu-item">
                 {{ link.title | escape }}

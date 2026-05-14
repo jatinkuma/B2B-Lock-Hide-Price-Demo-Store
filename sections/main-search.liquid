@@ -13,6 +13,17 @@
 {%- endif -%}
 
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('redirect_to_product') !== '1') return;
+
+    var firstProductLink = document.querySelector('#product-grid a.full-unstyled-link');
+    if (firstProductLink && firstProductLink.href) {
+      window.location.replace(firstProductLink.href);
+    }
+  });
+</script>
 
 <style>
   .template-search__header {
